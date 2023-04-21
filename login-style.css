@@ -1,13 +1,105 @@
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
-div{
+
+div {
     outline: 1px solid black;
 }
-main{
+
+main {
     display: flex;
     height: 100vh;
 }
-main div{
+
+main div {
     flex: 1;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container div {
+    padding: 50px;
+}
+
+.form-logo {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form-logo p {
+    font-size: 2rem;
+}
+
+.form-logo * {
+    margin-bottom: -100px;
+
+}
+
+.form-inputs {
+    flex-grow: 3;
+}
+
+.form-inputs form {
+    margin-top: -20px;
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 10px;
+}
+
+.form-inputs form label {
+    font-size: 1.6rem;
+}
+
+.form-inputs form input[type="text"] {
+    height: 35px;
+    padding-left: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.form-inputs form input[type="text"]:focus {
+    outline: none;
+    border: 3px solid green;
+}
+
+.form-inputs form input[type="password"] {
+    height: 35px;
+    padding-left: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.form-inputs form input[type="password"]:focus {
+    outline: none;
+    border: 3px solid green;
+}
+
+.form-inputs form input[type="submit"] {
+    height: 40px;
+    font-size: 1.4rem;
+    background-color: #468fd1;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.form-inputs form input[type="submit"]:hover {
+    background-color: #297ac0;
+    cursor: pointer;
+}
+
+label:hover {
+    cursor: pointer;
 }
