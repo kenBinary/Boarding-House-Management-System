@@ -1,0 +1,13 @@
+:root{
+    box-sizing: border-box;
+}
+main{
+    display: flex;
+    height: 100vh;
+}
+.form-container{
+
+}
+.image-container{
+    
+}
