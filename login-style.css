@@ -1,13 +1,13 @@
 :root{
     box-sizing: border-box;
 }
+div{
+    outline: 1px solid black;
+}
 main{
     display: flex;
     height: 100vh;
 }
-.form-container{
-
-}
-.image-container{
-    
+main div{
+    flex: 1;
 }
