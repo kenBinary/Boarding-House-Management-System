@@ -5,13 +5,13 @@
     font-family: 'Inter', sans-serif;
 }
 
-div {
+/* div {
     outline: 1px solid black;
-}
+} */
 
 main {
     display: flex;
-    height: 100vh;
+    height: 98vh;
 }
 
 main div {
@@ -102,4 +102,29 @@ main div {
 
 label:hover {
     cursor: pointer;
+}
+
+.image-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image-container .bhName{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+.image-container .bhName p{
+    font-size: 2rem;
+    margin-bottom: -50px;
+}
+.image-container .image-logo{
+    flex-grow: 3;
+    height: fit-content;
+    width: fit-content;
+}
+.image-container .image-logo img{
+    height: fit-content;
+    width: 450px;
 }
