@@ -1,17 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-*{
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-div {
-    outline: 1px solid black;
-}
-
-body {
-    display: flex;
-    height: 98vh;
-}
-
 .main-section {
     width: 60%;
     padding: 5px;
@@ -58,9 +44,4 @@ body {
     height: 45%;
     border-radius: 10px;
     padding: 10px;
-}
-
-.details-section {
-    width: 20%;
-    padding: 20px;
 }
