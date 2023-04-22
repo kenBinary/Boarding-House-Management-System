@@ -7,8 +7,8 @@
     row-gap: 10px;
     outline: 1px solid;
 }
-.main-section .option-section{
-    outline: 1px solid black;
+
+.main-section .option-section {
     border-radius: 10px;
     padding: 10px;
     height: 5%;
@@ -18,16 +18,24 @@
     align-items: center;
     text-align: center;
 }
-.main-section .option-section * {
+
+.main-section .option-section div {
     border-radius: 6px;
     padding: 10px;
-    outline: 1px solid black;
     flex-grow: 1;
     cursor: pointer;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    column-gap: 10px;
 }
 
-.main-section .preview-section{
+.option-section div img {
+    width: 30px;
+}
+
+.main-section .preview-section {
     height: 85%;
     border-radius: 10px;
     padding: 10px;
@@ -39,7 +47,8 @@
     column-gap: 50px;
     row-gap: 20px;
 }
-.main-section .preview-section *{
+
+.main-section .preview-section * {
     width: 45%;
     height: 45%;
     border-radius: 10px;
