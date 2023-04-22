@@ -8,47 +8,46 @@
     <title>Document</title>
     <link rel="stylesheet" href="dashboard-style.css">
     <link rel="stylesheet" href="webpage-styles/sidebar-style.css">
+    <link rel="stylesheet" href="webpage-styles/layout-normalization.css">
 </head>
 
 <body>
-    <main>
-        <div class="dashboard-sidebar">
-            <div class="sidebar-options">
-                <div class="sidebar-logo">
-                    <img src="resources/small-house.png" alt="app logo" srcset="">
-                    <p>XYZ Boardinghouse</p>
-                </div>
-                <a href="dashboard.php">
-                    <p>Dashboard</p>
-                </a>
-                <a href="room-management-webpage.php">
-                    <p>Room Management</p>
-                </a>
-                <a href="tenant-management-webpage.php">
-                    <p>Tenant Management</p>
-                </a>
-                <a href="payment-management-webpage.php">
-                    <p>Payment Management</p>
-                </a>
+    <div class="dashboard-sidebar">
+        <div class="sidebar-options">
+            <div class="sidebar-logo">
+                <img src="resources/small-house.png" alt="app logo" srcset="">
+                <p>XYZ Boardinghouse</p>
             </div>
-            <a href="http://" class="signout">
-                    <p>Logout</p>
+            <a href="dashboard.php">
+                <p>Dashboard</p>
+            </a>
+            <a href="room-management-webpage.php">
+                <p>Room Management</p>
+            </a>
+            <a href="tenant-management-webpage.php">
+                <p>Tenant Management</p>
+            </a>
+            <a href="payment-management-webpage.php">
+                <p>Payment Management</p>
             </a>
         </div>
-        <div class="dashboard-container">
-            <div class="room-layout">
-                room layout
+        <a href="http://" class="signout">
+            <p>Logout</p>
+        </a>
+    </div>
+    <div class="dashboard-container">
+        <div class="room-layout">
+            room layout
+        </div>
+        <div class="history-container">
+            <div class="room-history">
+                room history
             </div>
-            <div class="history-container">
-                <div class="room-history">
-                    room history
-                </div>
-                <div class="payment-history">
-                    payment history
-                </div>
+            <div class="payment-history">
+                payment history
             </div>
         </div>
-    </main>
+    </div>
 </body>
 
 </html>
