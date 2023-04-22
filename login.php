@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<body>
 <?php
-require ('LogIn.html');
+require ('login.html');
 require ('db_connect.php');
 session_start();
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -22,5 +18,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<script>alert('Invalid login');</script>";
     }
 }
-
-?>

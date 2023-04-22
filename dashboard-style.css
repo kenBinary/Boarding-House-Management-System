@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root{
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+div {
+    outline: 1px solid black;
+}
+main{
+    display: flex;
+    height: 97vh;
+}
+.dashboard-sidebar{
+    flex-grow: 1;
+}
+.dashboard-container{
+    flex-grow: 8;
+}
