@@ -1,20 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-:root {
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-
-div {
-    outline: 1px solid black;
-}
-
-main {
-    display: flex;
-    height: 97vh;
-}
-
-/* .dashboard-sidebar {
+.dashboard-sidebar {
     flex-grow: 1;
     padding: 10px;
     display: flex;
@@ -60,42 +44,4 @@ main {
     width: 90%;
     height: 52px;
     margin-left: 15px;
-} */
-
-a {
-    outline: 1px solid black;
-    text-decoration: none;
-}
-
-a:visited,
-a:active,
-a:link,
-a:hover {
-    color: black;
-}
-
-.dashboard-container {
-    flex-grow: 9;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    row-gap: 10px;
-}
-
-.dashboard-container div {
-    border-radius: 5px;
-}
-
-.dashboard-container .room-layout {
-    flex-grow: 5;
-}
-
-.dashboard-container .history-container {
-    flex-grow: 3;
-    display: flex;
-    column-gap: 10px;
-}
-
-.dashboard-container .history-container div {
-    flex-grow: 1;
 }

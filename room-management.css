@@ -4,3 +4,19 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
+div{
+    outline: 1px solid black;
+}
+body{
+    display: flex;
+    height: 98vh;
+}
+.dashboard-sidebar {
+    flex-grow: 1;
+}
+.preview-section {
+    flex-grow: 5;
+}
+.details-section{
+    flex-grow: 4;
+}
