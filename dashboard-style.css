@@ -14,10 +14,6 @@ main {
     height: 97vh;
 }
 
-.dashboard-container {
-    flex-grow: 9;
-}
-
 .dashboard-sidebar {
     flex-grow: 1;
     padding: 10px;
@@ -76,4 +72,30 @@ a:active,
 a:link,
 a:hover {
     color: black;
+}
+
+.dashboard-container {
+    flex-grow: 9;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    row-gap: 10px;
+}
+
+.dashboard-container div {
+    border-radius: 5px;
+}
+
+.dashboard-container .room-layout {
+    flex-grow: 5;
+}
+
+.dashboard-container .history-container {
+    flex-grow: 3;
+    display: flex;
+    column-gap: 10px;
+}
+
+.dashboard-container .history-container div {
+    flex-grow: 1;
 }
