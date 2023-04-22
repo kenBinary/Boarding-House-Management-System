@@ -1,9 +1,10 @@
 .dashboard-sidebar {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 20%;
 }
 
 .dashboard-sidebar .sidebar-options {
@@ -44,4 +45,15 @@
     width: 90%;
     height: 52px;
     margin-left: 15px;
+}
+a {
+    border: 1px solid black;
+    text-decoration: none;
+}
+
+a:visited,
+a:active,
+a:link,
+a:hover {
+    color: black;
 }

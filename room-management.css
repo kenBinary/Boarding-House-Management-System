@@ -1,22 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-:root {
+*{
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-div{
+div {
     outline: 1px solid black;
 }
-body{
+
+body {
     display: flex;
     height: 98vh;
 }
-.dashboard-sidebar {
+
+.main-section {
+    width: 60%;
+    padding: 5px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    outline: 1px solid;
+}
+.main-section .option-section{
+    outline: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    height: 5%;
+    display: flex;
+    height: 15%;
+    column-gap: 10px;
+    align-items: center;
+    text-align: center;
+}
+.main-section .option-section * {
+    border-radius: 6px;
+    padding: 10px;
+    outline: 1px solid black;
     flex-grow: 1;
+    cursor: pointer;
+
 }
-.preview-section {
-    flex-grow: 5;
+
+.main-section .preview-section{
+    height: 85%;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 50px;
+    row-gap: 20px;
 }
-.details-section{
-    flex-grow: 4;
+.main-section .preview-section *{
+    width: 45%;
+    height: 45%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.details-section {
+    width: 20%;
+    padding: 20px;
 }

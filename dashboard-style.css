@@ -62,8 +62,8 @@ main {
     margin-left: 15px;
 } */
 
-a {
-    outline: 1px solid black;
+/* a {
+    border: 1px solid black;
     text-decoration: none;
 }
 
@@ -72,7 +72,7 @@ a:active,
 a:link,
 a:hover {
     color: black;
-}
+} */
 
 .dashboard-container {
     flex-grow: 9;
