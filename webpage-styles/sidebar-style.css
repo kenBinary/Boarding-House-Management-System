@@ -28,6 +28,10 @@
     border-radius: 5px;
     height: 52px;
     width: 90%;
+    display: flex;
+    justify-content: start;
+    column-gap: 10px;
+    padding-left: 10px;
 }
 
 .sidebar-options div:nth-child(1) {
@@ -39,12 +43,22 @@
     width: 80px;
 }
 
+.sidebar-options a img {
+    width: 40px;
+}
+
 .dashboard-sidebar .signout {
     border-radius: 5px;
     text-align: center;
     width: 90%;
     height: 52px;
     margin-left: 15px;
+    display: flex;
+    justify-content: start;
+    padding-left: 10px;
+}
+.signout img {
+    width: 40px;
 }
 a {
     border: 1px solid black;
