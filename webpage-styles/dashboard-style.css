@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+:root{
+    --dominant-layout: #f8fafc;
+    --complementary-layout: #1e293b;
+    --accent-layout: #94a3b8;
+}
 .dashboard-container {
     flex-grow: 9;
     display: flex;
     flex-direction: column;
     padding: 10px;
     row-gap: 10px;
+}
+body{
+    font-weight: bold;
 }
 
 .dashboard-container div {
@@ -14,6 +22,7 @@
 .dashboard-container .room-layout {
     flex-grow: 5;
     padding: 10px;
+    border: 2px solid var(--complementary-layout);
 }
 
 .dashboard-container .history-container {
@@ -25,4 +34,5 @@
 .dashboard-container .history-container div {
     flex-grow: 1;
     padding: 10px;
+    border: 2px solid var(--complementary-layout);
 }

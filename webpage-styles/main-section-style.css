@@ -1,15 +1,21 @@
+:root{
+    --dominant-main: #f8fafc;
+    --complementary-main: #1e293b;
+    --accent-main: #94a3b8;
+}
 .main-section {
+    font-weight: bold;
     width: 60%;
     padding: 5px;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-    outline: 1px solid;
 }
 
 .main-section .option-section {
     border-radius: 10px;
+    border: 2px solid var(--complementary-main);
     padding: 10px;
     height: 5%;
     display: flex;
@@ -21,6 +27,7 @@
 
 .main-section .option-section div {
     border-radius: 6px;
+    border: 1px solid black;
     padding: 10px;
     flex-grow: 1;
     cursor: pointer;
@@ -36,6 +43,7 @@
 }
 
 .main-section .preview-section {
+    font-weight: bold;
     height: 85%;
     border-radius: 10px;
     padding: 10px;
@@ -48,7 +56,8 @@
     row-gap: 20px;
 }
 
-.main-section .preview-section * {
+.main-section .preview-section div {
+    border: 2px solid black;
     width: 45%;
     height: 45%;
     border-radius: 10px;

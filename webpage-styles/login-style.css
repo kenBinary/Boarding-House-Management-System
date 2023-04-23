@@ -8,6 +8,8 @@
 main {
     display: flex;
     height: 96vh;
+    color: #1e293b;
+    font-weight: bold;
 }
 
 main div {
@@ -85,14 +87,17 @@ main div {
 .form-inputs form input[type="submit"] {
     height: 40px;
     font-size: 1.4rem;
-    background-color: #468fd1;
+    background-color: #1e293b;
     outline: none;
     border: 1px solid black;
     border-radius: 5px;
+    font-weight: bold;
+    color: #f8fafc;
 }
 
 .form-inputs form input[type="submit"]:hover {
-    background-color: #297ac0;
+    background-color: #1e293b;
+    opacity: 80%;
     cursor: pointer;
 }
 

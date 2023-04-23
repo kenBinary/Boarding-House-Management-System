@@ -1,4 +1,11 @@
+:root{
+    --dominant-details: #f8fafc;
+    --complementary-details: #1e293b;
+    --accent-details: #94a3b8;
+}
 .details-section {
     width: 20%;
     padding: 20px;
+    height: 98%;
+    border: 2px solid var(--complementary-details);
 }

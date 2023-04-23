@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+:root{
+    --dominant-layout: #f8fafc;
+    --complementary-layout: #1e293b;
+    --accent-layout: #94a3b8;
+}
 *{
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    color: var(--complementary-layout);
 }
 body{
     display: flex;
     height: 97vh;
+    background-color: var(--dominant-layout);
 }
-div{
-    outline: 1px solid;
+body div:nth-child(3){
+    align-self: center;
+    border-radius: 10px;
 }

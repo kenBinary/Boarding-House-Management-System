@@ -1,13 +1,20 @@
+:root{
+    --dominant-sidebar: #f8fafc;
+    --complementary-sidebar: #1e293b;
+    --accent-sidebar: #94a3b8;
+}
 .dashboard-sidebar {
-    /* flex-grow: 1; */
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 20%;
+    border-right: 3px solid var(--complementary-sidebar);
+
 }
 
 .dashboard-sidebar .sidebar-options {
+    font-weight: bolder;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -32,11 +39,14 @@
     justify-content: start;
     column-gap: 10px;
     padding-left: 10px;
+    border-bottom: 2px solid #94a3b8;
 }
 
 .sidebar-options div:nth-child(1) {
     display: flex;
     justify-content: center;
+    border-bottom: 2px solid #94a3b8;
+
 }
 
 .sidebar-options div:nth-child(1) img {
@@ -48,6 +58,7 @@
 }
 
 .dashboard-sidebar .signout {
+    border-bottom: 2px solid var(--accent-sidebar);
     border-radius: 5px;
     text-align: center;
     width: 90%;
@@ -56,12 +67,12 @@
     display: flex;
     justify-content: start;
     padding-left: 10px;
+    font-weight: bold;
 }
 .signout img {
     width: 40px;
 }
 a {
-    border: 1px solid black;
     text-decoration: none;
 }
 
