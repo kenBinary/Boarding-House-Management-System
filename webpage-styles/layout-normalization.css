@@ -14,7 +14,7 @@ body{
     height: 97vh;
     background-color: var(--dominant-layout);
 }
-body div:nth-child(3){
+body > div:nth-child(3){
     align-self: center;
     border-radius: 10px;
 }

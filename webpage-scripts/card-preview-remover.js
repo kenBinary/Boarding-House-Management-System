@@ -1,16 +1,18 @@
-const options = document.querySelectorAll('.option');
-const previewSection = document.querySelector('.preview-section');
-const previewCards = document.querySelectorAll('.preview-card');
+let optionsArray = Array.from(document.querySelectorAll('.option'));
+let previewCardsArr = Array.from(document.querySelectorAll('.preview-card'));
+let previousOption = optionsArray[0];
 function removeCards() {
-    if (previewSection.firstElementChild) {
-        previewCards.forEach((element) => {
-            let parentNode = element.parentElement;
-            parentNode.removeChild(element);
-        });
-    }
+    previewCardsArr.forEach((element) => {
+        let parentNode = element.parentElement;
+        parentNode.removeChild(element);
+    });
+    previewCardsArr.length = 0;
 }
-options.forEach(option => {
-    option.addEventListener('click', removeCards);
+optionsArray.forEach(option => {
+    option.addEventListener('click', (e) => {
+        if (e.target != previousOption) {
+            removeCards();
+            previousOption = e.target;
+        }
+    });
 });
-
-

@@ -26,13 +26,11 @@
 }
 
 .sidebar-options div {
-    border-radius: 5px;
     height: 52px;
     width: 90%;
 }
 
 .sidebar-options a {
-    border-radius: 5px;
     height: 52px;
     width: 90%;
     display: flex;
@@ -45,7 +43,6 @@
 .sidebar-options div:nth-child(1) {
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid #94a3b8;
 
 }
 
@@ -59,7 +56,6 @@
 
 .dashboard-sidebar .signout {
     border-bottom: 2px solid var(--accent-sidebar);
-    border-radius: 5px;
     text-align: center;
     width: 90%;
     height: 52px;

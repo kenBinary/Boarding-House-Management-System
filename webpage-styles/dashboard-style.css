@@ -10,11 +10,8 @@
     flex-direction: column;
     padding: 10px;
     row-gap: 10px;
-}
-body{
     font-weight: bold;
 }
-
 .dashboard-container div {
     border-radius: 5px;
 }

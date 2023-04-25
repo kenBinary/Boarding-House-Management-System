@@ -1,0 +1,50 @@
+.preview-card *{
+    outline: 1px solid black;
+}
+.preview-section {
+    font-weight: bold;
+    height: 85%;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 50px;
+    row-gap: 20px;
+}
+.preview-card {
+    border: 2px solid black;
+    width: 45%;
+    height: 45%;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 10px;
+}
+.preview-card > div:nth-child(1){
+    height: 70%;
+    width: 100%;
+}
+.preview-card > .preview-details{
+    width: 28%;
+    border-radius: 10px;
+    margin-bottom: 2.5%;
+    height: 18%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+}
+.preview-card > .preview-details > img{
+    width: 30%;
+}
+
+.preview-card > .preview-image{
+    background-image: url('../resources/double-bed.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

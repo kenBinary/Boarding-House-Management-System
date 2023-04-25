@@ -41,8 +41,11 @@
 .option-section div img {
     width: 30px;
 }
+.option-section .option *{
+    pointer-events: none;
+}
 
-.main-section .preview-section {
+/* .main-section .preview-section {
     font-weight: bold;
     height: 85%;
     border-radius: 10px;
@@ -61,5 +64,4 @@
     width: 45%;
     height: 45%;
     border-radius: 10px;
-    padding: 10px;
-}
+} */
