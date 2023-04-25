@@ -1,6 +1,7 @@
 let optionsArray = Array.from(document.querySelectorAll('.option'));
 let previewCardsArr = Array.from(document.querySelectorAll('.preview-card'));
 let previousOption = optionsArray[0];
+
 function removeCards() {
     previewCardsArr.forEach((element) => {
         let parentNode = element.parentElement;

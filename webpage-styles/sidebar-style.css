@@ -52,7 +52,9 @@
 
 .sidebar-options a img {
     width: 40px;
+    align-self: center;
 }
+
 
 .dashboard-sidebar .signout {
     border-bottom: 2px solid var(--accent-sidebar);

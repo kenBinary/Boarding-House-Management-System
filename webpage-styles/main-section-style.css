@@ -40,6 +40,14 @@
 
 .option-section div img {
     width: 30px;
+    align-self: center;
+}
+#waterdrop{
+    width: 22px;
+    height: 32px;
+}
+#add-tenant{
+    width: 33px;
 }
 .option-section .option *{
     pointer-events: none;

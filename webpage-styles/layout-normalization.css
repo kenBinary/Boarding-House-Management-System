@@ -10,8 +10,11 @@
     color: var(--complementary-layout);
 }
 body{
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     display: flex;
-    height: 97vh;
+    height: 100vh;
     background-color: var(--dominant-layout);
 }
 body > div:nth-child(3){

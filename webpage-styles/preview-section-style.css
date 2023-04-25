@@ -41,8 +41,13 @@
 .preview-card > .preview-details > img{
     width: 30%;
 }
-
-.preview-card > .preview-image{
+.preview-card > .single-bed{
+    background-image: url('../resources/single-bed.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.preview-card > .double-bed{
     background-image: url('../resources/double-bed.png');
     background-size: contain;
     background-repeat: no-repeat;
