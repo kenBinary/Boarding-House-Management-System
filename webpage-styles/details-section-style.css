@@ -7,5 +7,7 @@
     width: 20%;
     padding: 20px;
     height: 98%;
-    border: 2px solid var(--complementary-details);
+    border: 1px solid rgb(126, 139, 158);
+    background-color: rgb(225, 231, 239,0.8);
+    border-radius: 3px !important;
 }
