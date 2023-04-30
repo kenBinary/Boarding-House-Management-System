@@ -4,6 +4,9 @@
     --complementary-layout: #1e293b;
     --accent-layout: #94a3b8;
 }
+*{
+    color: inherit;
+}
 .dashboard-container {
     flex-grow: 9;
     display: flex;
@@ -11,15 +14,17 @@
     padding: 10px;
     row-gap: 10px;
     font-weight: bold;
+    background-color: var(--dominant-layout);
 }
 .dashboard-container div {
+    color: var(--complementary-layout);
     border-radius: 5px;
 }
 
 .dashboard-container .room-layout {
     flex-grow: 5;
     padding: 10px;
-    border: 2px solid var(--complementary-layout);
+    border: 2px solid rgb(126, 139, 158);
 }
 
 .dashboard-container .history-container {
@@ -31,5 +36,5 @@
 .dashboard-container .history-container div {
     flex-grow: 1;
     padding: 10px;
-    border: 2px solid var(--complementary-layout);
+    border: 2px solid rgb(126, 139, 158);
 }

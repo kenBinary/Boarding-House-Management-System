@@ -14,6 +14,7 @@ optionsArray.forEach(option => {
         if (e.target != previousOption) {
             removeCards();
             previousOption = e.target;
+            console.log(e.target)
         }
     });
 });
