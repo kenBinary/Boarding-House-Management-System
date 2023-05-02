@@ -97,6 +97,7 @@ const freeCard = (roomTypeClass, data) => {
 }
 function createPreviewDetails(parentElement, imageSource, textContent) {
     for (let index = 0; index < imageSource.length; index++) {
+
         const previewDetails = document.createElement('div');
         previewDetails.classList.add('preview-details');
         const detailImage = document.createElement('img');
@@ -105,8 +106,28 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
         detailText.textContent = textContent[index];
         previewDetails.appendChild(detailImage);
         previewDetails.appendChild(detailText);
+        if (index === 0) {
+            previewDetails.addEventListener('click',createPopUpSection);
+            // previewDetails.addEventListener('click',()=>{
+            //     console.log("bruh")
+            // });
+        }
         parentElement.appendChild(previewDetails);
     }
+}
+function popUpAppear() {
+    const parentElement =  document.querySelector(".preview-section");
+    parentElement.classList.add("popup-appear");
+    return parentElement;
+}
+function createPopUpSection() {
+    const parentElement = popUpAppear();
+    const popUpSection = document.createElement('div');
+    popUpSection.classList.add("popup-modal-section");
+    const popUp = document.createElement('div');
+    popUp.classList.add("pop-up");
+    popUpSection.appendChild(popUp);
+    parentElement.appendChild(popUpSection);
 }
 
 
