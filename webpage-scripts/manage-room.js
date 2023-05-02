@@ -108,9 +108,6 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
         previewDetails.appendChild(detailText);
         if (index === 0) {
             previewDetails.addEventListener('click',createPopUpSection);
-            // previewDetails.addEventListener('click',()=>{
-            //     console.log("bruh")
-            // });
         }
         parentElement.appendChild(previewDetails);
     }
