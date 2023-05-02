@@ -1,29 +1,11 @@
-let optionsArray = Array.from(document.querySelectorAll('.option'));
-let previewCardsArr = Array.from(document.querySelectorAll('.preview-card'));
-let currentOption = optionsArray[0];
 let previewSection = document.querySelector('.preview-section');
-optionsArray.forEach(option => {
-    option.addEventListener('click', (e) => {
-        if (e.target != currentOption) {
-            currentOption = e.target.lastElementChild.textContent;
-            removeCards();
-        }
-    });
-});
-function removeCards() {
-    previewCardsArr.forEach((element) => {
-        let parentNode = element.parentElement;
-        parentNode.removeChild(element);
-    });
-    previewCardsArr.length = 0;
-}
 function requestPHP(filePath, tableBody) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', filePath, true);
     xhr.onload = function () {
         if (this.status == 200) {
             let data = JSON.parse(this.responseText);
-            createRows(tableBody,data);
+            createRows(tableBody, data);
         } else {
             console.log("xx");
         }
@@ -61,11 +43,11 @@ function createSingleRow(tableBody, dataObject) {
 }
 const createRows = (tableBody, data) => {
     for (let index = 0; index < data.length; index++) {
-        createSingleRow(tableBody,data[index]);
+        createSingleRow(tableBody, data[index]);
     }
 }
-const initializeTable = (()=>{
+const initializeTable = (() => {
     let table = tablePreview();
     previewSection.appendChild(table.table);
-    requestPHP("tenant-info.php",table.tableBody);
+    requestPHP("tenant-info.php", table.tableBody);
 })();
