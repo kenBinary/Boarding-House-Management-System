@@ -23,7 +23,8 @@ function requestPHP(filePath, optionType) {
     xhr.onload = function () {
         if (this.status == 200) {
             let data = JSON.parse(this.responseText);
-            createCards(optionType, data.length, data);
+            console.log(data)
+            // createCards(optionType, data.length, data);
         } else {
             console.log("xx");
         }
@@ -47,4 +48,26 @@ const tablePreview = () => {
     table.appendChild(tableHead);
     table.appendChild(tableBody);
     return { table, tableBody };
+}
+// const createSingleRow = (tableBody,data) =>{
+//     const tableRow = document.createElement("tr");
+//     data.forEach(element => {
+//         const tableData = document.createElement("td");
+//         tableData.textContent = element;
+//         tableRow.appendChild(tableData);
+//     });
+//     tableBody.appendChild(tableRow);
+//     return {tableRow};
+// }
+function createSingleRow(tableBody, data) {
+    const tableRow = document.createElement("tr");
+    data.forEach(element => {
+        const tableData = document.createElement("td");
+        tableData.textContent = element;
+        tableRow.appendChild(tableData);
+    });
+    tableBody.appendChild(tableRow);
+}
+const createRows = (tableBody, data) => {
+
 }
