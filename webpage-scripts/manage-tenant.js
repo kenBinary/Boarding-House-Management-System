@@ -17,20 +17,20 @@ function removeCards() {
     });
     previewCardsArr.length = 0;
 }
-function requestPHP(filePath, optionType) {
+function requestPHP(filePath, tableBody) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', filePath, true);
     xhr.onload = function () {
         if (this.status == 200) {
             let data = JSON.parse(this.responseText);
-            console.log(data)
-            // createCards(optionType, data.length, data);
+            createRows(tableBody,data);
         } else {
             console.log("xx");
         }
     };
     xhr.send();
 }
+
 const tablePreview = () => {
     const tableHeadings = ["TenantID", "First Name", "Last Name", "Contact Number"];
     const table = document.createElement("table");
@@ -49,17 +49,8 @@ const tablePreview = () => {
     table.appendChild(tableBody);
     return { table, tableBody };
 }
-// const createSingleRow = (tableBody,data) =>{
-//     const tableRow = document.createElement("tr");
-//     data.forEach(element => {
-//         const tableData = document.createElement("td");
-//         tableData.textContent = element;
-//         tableRow.appendChild(tableData);
-//     });
-//     tableBody.appendChild(tableRow);
-//     return {tableRow};
-// }
-function createSingleRow(tableBody, data) {
+function createSingleRow(tableBody, dataObject) {
+    const data = Object.values(dataObject);
     const tableRow = document.createElement("tr");
     data.forEach(element => {
         const tableData = document.createElement("td");
@@ -69,5 +60,12 @@ function createSingleRow(tableBody, data) {
     tableBody.appendChild(tableRow);
 }
 const createRows = (tableBody, data) => {
-
+    for (let index = 0; index < data.length; index++) {
+        createSingleRow(tableBody,data[index]);
+    }
 }
+const initializeTable = (()=>{
+    let table = tablePreview();
+    previewSection.appendChild(table.table);
+    requestPHP("tenant-info.php",table.tableBody);
+})();
