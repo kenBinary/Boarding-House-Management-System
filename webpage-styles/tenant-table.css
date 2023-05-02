@@ -38,7 +38,7 @@
     box-sizing: border-box;
     padding: 5px;
     text-align: left;
-    width: 200px;
+    width: 225px;
 }
 .table-preview tbody tr:hover{
     background-color: rgba(148, 163, 184,0.5);

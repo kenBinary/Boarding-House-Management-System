@@ -17,3 +17,16 @@ function removeCards() {
     });
     previewCardsArr.length = 0;
 }
+function requestPHP(filePath, optionType) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', filePath, true);
+    xhr.onload = function () {
+        if (this.status == 200) {
+            let data = JSON.parse(this.responseText);
+            createCards(optionType, data.length, data);
+        } else {
+            console.log("xx");
+        }
+    };
+    xhr.send();
+}
