@@ -21,6 +21,7 @@
 }
 
 .table-preview thead {
+    display: block;
     height: 70px;
     color: #f8fafc !important;
 }
