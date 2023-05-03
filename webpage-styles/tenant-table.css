@@ -1,7 +1,7 @@
 .preview-section {
+    position: relative;
     overflow-y: hidden !important;
-    height: 85% !important; 
-    /* overflow-y: auto !important; */
+    height: 85% !important;
 }
 
 .table-preview {
@@ -13,7 +13,7 @@
 }
 
 .table-preview thead tr {
-    background-color: rgba(72, 86, 106,0.95);
+    background-color: rgba(72, 86, 106, 0.95);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     height: 70px;
@@ -24,15 +24,18 @@
     height: 70px;
     color: #f8fafc !important;
 }
-.table-preview thead th{
+
+.table-preview thead th {
     color: #f8fafc !important;
 }
+
 .table-preview tbody {
     display: block;
     width: 100%;
     overflow-y: auto !important;
     height: 575px;
 }
+
 .table-preview th,
 .table-preview td {
     box-sizing: border-box;
@@ -40,15 +43,48 @@
     text-align: left;
     width: 225px;
 }
-.table-preview tbody tr:hover{
-    background-color: rgba(148, 163, 184,0.5);
+
+.table-preview tbody tr{
+    transition: 0.1s ease-out;
 }
-.table-preview th{
+.table-preview tbody tr:hover {
+    background-color: rgba(148, 163, 184, 0.5);
+}
+
+.table-preview th {
     height: 70px;
 }
-.table-preview td{
+
+.table-preview td {
     height: 70px;
 }
-.table-preview tr{
+
+.table-preview tr {
     cursor: pointer;
+}
+
+.add-tenant,.remove-tenant {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    background-image: url("../resources/plus.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 40px;
+    border: 2px solid rgba(126, 139, 158);
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+.add-tenant:hover,.remove-tenant:hover{
+    transform: rotate(360deg) scale(1.1,1.1);
+    background-color:rgba(148, 163, 184, 0.8) ;
+}
+.remove-tenant{
+    background-image: url("../resources/minus.png");
+    bottom: 60px;
 }
