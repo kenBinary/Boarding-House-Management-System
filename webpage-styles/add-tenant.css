@@ -1,0 +1,66 @@
+.add-tenant-form{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 2.3fr 5fr;
+    grid-template-rows: repeat(5,1fr);
+    row-gap: 5px;
+    align-items: center;
+}
+.add-tenant-form > p {
+    font-size: 1.4rem;
+    box-sizing: border-box;
+}
+.add-tenant-form > * {
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    height: 100%;
+}
+.add-tenant-form > label {
+    cursor: pointer;
+}
+.add-tenant-form > input{
+    height: 50px;
+    font-weight: bold;
+    font-style: inherit;
+    border: 1px solid #1e293b;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+.add-tenant-form > :nth-child(1){
+    justify-self: center;
+    box-sizing: border-box;
+    margin: 0px;
+    grid-column: 1/ span 2;
+}
+.add-tenant-form > :last-child{
+    height: 30px;
+    border-radius: 5px;
+    width: max-content;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-self: last baseline;
+    justify-self: end;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    transition: 0.3s ease-out;
+    background-color: #f8fafc;
+}
+.add-tenant-form > :nth-last-child(2){
+    cursor: pointer;
+    background-color: #f8fafc;
+    border-radius: 5px;
+    display: flex;
+    width: max-content;
+    padding: 10px;
+    height: 30px;
+    align-self:last baseline;
+    border: 1px solid #1e293b;
+    justify-self: start;
+    transition: 0.3s ease-out;
+}
+.add-tenant-form > :nth-last-child(2):hover,.add-tenant-form > :last-child:hover{
+    transform:scale(1.1);
+}
