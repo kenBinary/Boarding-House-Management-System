@@ -1,10 +1,15 @@
 <?php
 require('tenant-management.html');
-// require('db_connect.php');
+require('db_connect.php');
 
-// $roomRecords = $result->fetch_all(MYSQLI_ASSOC);
-// echo json_encode($roomRecords);
-// if (isset($_POST['submit'])) {
-//     $sql_query = "INSERT INTO `tenant`(`firstName`, `lastName`) VALUES ('[value-1]','[value-2]')";
-//     $result = mysqli_query($conn, $sql_query);
-// }
+if (isset($_POST['submit'])) {
+    $first_name = $_POST['first-name'];
+    $last_name = $_POST['last-name'];
+    $contact_number = $_POST['contact'];
+    $add_tenant = mysqli_query($conn, "Insert Into tenant(firstName,lastName) values('{$first_name}','{$last_name}')");
+    $tenantId = mysqli_query($conn, "select tenantid from tenant where firstName ='{$first_name}' and lastName = '{$last_name}'");
+    // print_r($tenantId->fetch_row()[0]) ;
+    $tenant_number = $tenantId->fetch_row()[0];
+    $add_contact = mysqli_query($conn, "insert into tenantnumber(tenant_id,contactNumber) values('{$tenant_number}','{$contact_number}')");
+}
+?>

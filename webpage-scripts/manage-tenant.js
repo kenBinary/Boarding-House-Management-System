@@ -70,38 +70,6 @@ function createPopUpSection() {
     parentElement.appendChild(popUpSection);
     return popUp;
 }
-// function addTenantPopUp(popUp) {
-//     let popUpElements = [];
-//     const labels = ["First Name", "Last Name", "Contact Number"];
-//     const inputTypes = ["text", "text", "number"];
-//     const inputNames = ["first-name", "last-name", "contact"];
-//     const inputID = ["first-name", "last-name", "contact"];
-//     const popUpName = document.createElement('p');
-//     popUpName.textContent = "Add Tenant";
-//     popUpElements.push(popUpName);
-//     labels.forEach((element, index) => {
-//         const label = document.createElement('label');
-//         label.textContent = element;
-//         label.setAttribute("for", inputID[index]);
-//         const input = document.createElement('input');
-//         input.setAttribute("type", inputTypes[index]);
-//         input.setAttribute("name", inputNames[index]);
-//         input.setAttribute("id", inputID[index]);
-//         popUpElements.push(label);
-//         popUpElements.push(input);
-//     });
-//     const submitButton = document.createElement('input');
-//     submitButton.setAttribute("type", "submit");
-//     submitButton.setAttribute("value", "Add Tenant");
-//     submitButton.setAttribute("name", "submit");
-//     const closeButton = document.createElement('div');
-//     closeButton.textContent = "close";
-//     popUpElements.push(closeButton);
-//     popUpElements.push(submitButton);
-//     popUpElements.forEach((element) => {
-//         popUp.appendChild(element);
-//     });
-// }
 
 const popUp = createPopUpSection();
 
