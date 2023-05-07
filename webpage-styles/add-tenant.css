@@ -1,3 +1,6 @@
+.popup-modal-section{
+    display: none !important;
+}
 .add-tenant-form{
     padding: 10px;
     display: grid;
@@ -63,4 +66,11 @@
 }
 .add-tenant-form > :nth-last-child(2):hover,.add-tenant-form > :last-child:hover{
     transform:scale(1.1);
+}
+
+.show-popUp {
+    display: flex !important;
+}
+.hide-popUp{
+    display: none !important;
 }

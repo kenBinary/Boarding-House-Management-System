@@ -53,7 +53,7 @@ const initializeTable = (() => {
 })();
 
 function popUpAppear() {
-    const parentElement =  document.querySelector(".preview-section");
+    const parentElement = document.querySelector(".preview-section");
     parentElement.classList.add("popup-appear");
     return parentElement;
 }
@@ -62,48 +62,92 @@ function createPopUpSection() {
     const popUpSection = document.createElement('div');
     popUpSection.classList.add("popup-modal-section");
     const popUp = document.createElement('form');
-    popUp.classList.add("pop-up","add-tenant-form");
+    popUp.classList.add("pop-up", "add-tenant-form");
     // popUp.setAttribute("action","add-tenant.php");
-    popUp.setAttribute("action","tenant-management-webpage.php");
-    popUp.setAttribute("method","post");
+    popUp.setAttribute("action", "tenant-management-webpage.php");
+    popUp.setAttribute("method", "post");
     popUpSection.appendChild(popUp);
     parentElement.appendChild(popUpSection);
     return popUp;
 }
-function addTenantPopUp(popUp) {
+// function addTenantPopUp(popUp) {
+//     let popUpElements = [];
+//     const labels = ["First Name", "Last Name", "Contact Number"];
+//     const inputTypes = ["text", "text", "number"];
+//     const inputNames = ["first-name", "last-name", "contact"];
+//     const inputID = ["first-name", "last-name", "contact"];
+//     const popUpName = document.createElement('p');
+//     popUpName.textContent = "Add Tenant";
+//     popUpElements.push(popUpName);
+//     labels.forEach((element, index) => {
+//         const label = document.createElement('label');
+//         label.textContent = element;
+//         label.setAttribute("for", inputID[index]);
+//         const input = document.createElement('input');
+//         input.setAttribute("type", inputTypes[index]);
+//         input.setAttribute("name", inputNames[index]);
+//         input.setAttribute("id", inputID[index]);
+//         popUpElements.push(label);
+//         popUpElements.push(input);
+//     });
+//     const submitButton = document.createElement('input');
+//     submitButton.setAttribute("type", "submit");
+//     submitButton.setAttribute("value", "Add Tenant");
+//     submitButton.setAttribute("name", "submit");
+//     const closeButton = document.createElement('div');
+//     closeButton.textContent = "close";
+//     popUpElements.push(closeButton);
+//     popUpElements.push(submitButton);
+//     popUpElements.forEach((element) => {
+//         popUp.appendChild(element);
+//     });
+// }
+
+const popUp = createPopUpSection();
+
+const addTenantPopUp = ((popUp) => {
     let popUpElements = [];
-    const labels = ["First Name","Last Name","Contact Number"];
-    const inputTypes = ["text","text","number"];
-    const inputNames = ["first-name","last-name","contact"];
-    const inputID = ["first-name","last-name","contact"];
+    const labels = ["First Name", "Last Name", "Contact Number"];
+    const inputTypes = ["text", "text", "number"];
+    const inputNames = ["first-name", "last-name", "contact"];
+    const inputID = ["first-name", "last-name", "contact"];
     const popUpName = document.createElement('p');
     popUpName.textContent = "Add Tenant";
     popUpElements.push(popUpName);
-    labels.forEach((element,index)=>{
+    labels.forEach((element, index) => {
         const label = document.createElement('label');
         label.textContent = element;
-        label.setAttribute("for",inputID[index]);
+        label.setAttribute("for", inputID[index]);
         const input = document.createElement('input');
-        input.setAttribute("type",inputTypes[index]);
-        input.setAttribute("name",inputNames[index]);
-        input.setAttribute("id",inputID[index]);
+        input.setAttribute("type", inputTypes[index]);
+        input.setAttribute("name", inputNames[index]);
+        input.setAttribute("id", inputID[index]);
         popUpElements.push(label);
         popUpElements.push(input);
     });
     const submitButton = document.createElement('input');
-    submitButton.setAttribute("type","submit");
-    submitButton.setAttribute("value","Add Tenant");
-    submitButton.setAttribute("name","submit");
+    submitButton.setAttribute("type", "submit");
+    submitButton.setAttribute("value", "Add Tenant");
+    submitButton.setAttribute("name", "submit");
     const closeButton = document.createElement('div');
     closeButton.textContent = "close";
     popUpElements.push(closeButton);
     popUpElements.push(submitButton);
-    popUpElements.forEach((element)=>{
+    popUpElements.forEach((element) => {
         popUp.appendChild(element);
     });
-}
-const popUp = createPopUpSection();
-addTenantPopUp(popUp);
+    return { closeButton }
+})(popUp);
+
+// const popUp = createPopUpSection();
+// addTenantPopUp(popUp);
 
 const addTenant = document.querySelector(".add-tenant");
-addTenant.addEventListener('click',createPopUpSection);
+addTenant.addEventListener('click', () => {
+    popUp.parentElement.classList.remove("hide-popUp");
+    popUp.parentElement.classList.add("show-popUp");
+});
+addTenantPopUp.closeButton.addEventListener('click', () => {
+    popUp.parentElement.classList.remove("show-popUp");
+    popUp.parentElement.classList.add("hide-popUp");
+})
