@@ -8,7 +8,6 @@ if (isset($_POST['submit'])) {
     $contact_number = $_POST['contact'];
     $add_tenant = mysqli_query($conn, "Insert Into tenant(firstName,lastName) values('{$first_name}','{$last_name}')");
     $tenantId = mysqli_query($conn, "select tenantid from tenant where firstName ='{$first_name}' and lastName = '{$last_name}'");
-    // print_r($tenantId->fetch_row()[0]) ;
     $tenant_number = $tenantId->fetch_row()[0];
     $add_contact = mysqli_query($conn, "insert into tenantnumber(tenant_id,contactNumber) values('{$tenant_number}','{$contact_number}')");
 }
