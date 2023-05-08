@@ -4,8 +4,7 @@
     height: 85% !important;
 }
 
-.add-tenant,
-.remove-tenant {
+.add-tenant{
     position: absolute;
     bottom: 20px;
     right: 30px;

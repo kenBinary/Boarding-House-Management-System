@@ -10,18 +10,41 @@
     flex-direction: column;
     row-gap: 0.4rem;
 }
+.tenant-details-section > * {
+    border: 1px solid rgb(126, 139, 158);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
 .tenant-details-section > .image-holder{
     height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .tenant-details-section > .details {
     height: 7%;
-
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.details-section > div:last-child{
-    outline: 1px solid blue;
+.remove-tenant{
+    box-sizing: border-box;
+    padding: .5rem;
+    font-size: 1rem;
+    border: 1px solid rgb(126, 139, 158);
+    border-radius: 5px;
+    cursor: pointer;
     flex-basis: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: 0.3s ease-out;
 }
-.details-section > div > div {
-    outline: 1px solid green;
+.remove-tenant:hover{
+    transform: scale(1.03);
 }
