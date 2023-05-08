@@ -3,12 +3,23 @@ require('tenant-management.html');
 require('db_connect.php');
 
 if (isset($_POST['submit'])) {
-    $first_name = $_POST['first-name'];
-    $last_name = $_POST['last-name'];
-    $contact_number = $_POST['contact'];
-    $add_tenant = mysqli_query($conn, "Insert Into tenant(firstName,lastName) values('{$first_name}','{$last_name}')");
-    $tenantId = mysqli_query($conn, "select tenantid from tenant where firstName ='{$first_name}' and lastName = '{$last_name}'");
-    $tenant_number = $tenantId->fetch_row()[0];
-    $add_contact = mysqli_query($conn, "insert into tenantnumber(tenant_id,contactNumber) values('{$tenant_number}','{$contact_number}')");
+    $tenantFirstname = $_POST['first-name'];
+    $tenantLastname = $_POST['last-name'];
+    $tenantNumber = $_POST['contact'];
+
+    $sqlValues = "INSERT INTO `tenant`(`firstName`, `lastName`) VALUES ('$tenantFirstname','$tenantLastname')";
+    $result = mysqli_query($conn, $sqlValues);
+
+    $sqlValues1 = "SELECT `tenantId` FROM `tenant` WHERE firstName = '$tenantFirstname' AND lastName = '$tenantLastname'";
+    $results = mysqli_query($conn, $sqlValues1);
+
+    if (mysqli_num_rows($results) > 0) {
+        $row = mysqli_fetch_row($results);
+        $tenantID = $row[0];
+        $sqlValues2 = "INSERT INTO `tenantnumber`(`tenant_id`,`contactNumber`) VALUES ('$tenantID', '$tenantNumber')";
+        mysqli_query($conn, $sqlValues2);
+
+    } else {
+        echo "Not Found";
+    }
 }
-?>
