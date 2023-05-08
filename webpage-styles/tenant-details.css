@@ -1,0 +1,27 @@
+.details-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap:1rem;
+}
+.tenant-details-section{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.4rem;
+}
+.tenant-details-section > .image-holder{
+    height: 50%;
+}
+.tenant-details-section > .details {
+    height: 7%;
+
+}
+
+.details-section > div:last-child{
+    outline: 1px solid blue;
+    flex-basis: 5%;
+}
+.details-section > div > div {
+    outline: 1px solid green;
+}
