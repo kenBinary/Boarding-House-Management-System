@@ -12,18 +12,25 @@ function requestPHP(filePath, tableBody) {
   };
   xhr.send();
 }
-function retrieveRowData(filePath,tenantId) {
+function retrieveRowData(tenantId,callback) {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", filePath +'?tenantId=' + encodeURIComponent(tenantId), true);
+  xhr.open("GET", "tenant-row-data.php" +'?tenantId=' + encodeURIComponent(tenantId), true);
   xhr.onload = function () {
     if (this.status == 200) {
       let data = JSON.parse(this.responseText);
-      console.log(data)
-    } else {
+      callback(data);
+      } else {
       console.log("xx");
     }
   };
   xhr.send();
+}
+
+function updateDetails(detailData) {
+  let details = Array.from(document.querySelectorAll(".details"));
+  detailData.forEach((element,index) => {
+    details[index].textContent += ("" + element);
+  });
 }
 
 const tablePreview = () => {
@@ -60,8 +67,8 @@ function createSingleRow(tableBody, dataObject) {
   let y;
   tableRow.addEventListener("click", (e) => {
     let id = e.target.firstElementChild.textContent;
-    retrieveRowData("tenant-row-data.php",id);
-
+    console.log(id)
+    retrieveRowData(id,updateDetails);
   });
   tableBody.appendChild(tableRow);
 }
