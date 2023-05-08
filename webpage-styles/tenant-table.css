@@ -40,6 +40,9 @@
     width: 100%;
     height: 10%;
 }
+td{
+    pointer-events: none;
+}
 
 .table-preview>thead>tr {
     background-color: rgba(72, 86, 106, 0.95);
