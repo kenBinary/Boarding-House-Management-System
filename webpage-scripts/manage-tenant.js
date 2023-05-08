@@ -63,7 +63,6 @@ function createPopUpSection() {
     popUpSection.classList.add("popup-modal-section");
     const popUp = document.createElement('form');
     popUp.classList.add("pop-up", "add-tenant-form");
-    // popUp.setAttribute("action","add-tenant.php");
     popUp.setAttribute("action", "tenant-management-webpage.php");
     popUp.setAttribute("method", "post");
     popUpSection.appendChild(popUp);
@@ -106,9 +105,6 @@ const addTenantPopUp = ((popUp) => {
     });
     return { closeButton }
 })(popUp);
-
-// const popUp = createPopUpSection();
-// addTenantPopUp(popUp);
 
 const addTenant = document.querySelector(".add-tenant");
 addTenant.addEventListener('click', () => {

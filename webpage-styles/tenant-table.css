@@ -76,12 +76,13 @@
     padding: 5px;
 }
 
-.table-preview tbody tr {
+.table-preview > tbody > tr {
     transition: 0.1s ease-out;
 }
 
-.table-preview tbody tr:hover {
+.table-preview > tbody > tr:hover {
     background-color: rgba(148, 163, 184, 0.5);
+    transform: scaleY(1.1);
 }
 
 .table-preview tr {
