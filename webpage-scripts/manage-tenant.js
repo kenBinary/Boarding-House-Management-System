@@ -43,30 +43,10 @@ function updateDetails(detailData) {
     details[index].textContent = detailText[index] + element;
   });
 }
-
-const tablePreview = () => {
-  const tableHeadings = [
-    "TenantID",
-    "First Name",
-    "Last Name",
-    "Contact Number",
-  ];
-  const table = document.createElement("table");
-  table.classList.add("table-preview");
-  const tableHead = document.createElement("thead");
-  const headingRow = document.createElement("tr");
-  tableHeadings.forEach((element) => {
-    const th = document.createElement("th");
-    th.textContent = element;
-    headingRow.appendChild(th);
-  });
-  tableHead.appendChild(headingRow);
-  const tableBody = document.createElement("tbody");
-  tableBody.classList.add("table-body");
-  table.appendChild(tableHead);
-  table.appendChild(tableBody);
-  return { table, tableBody };
-};
+const initializeTable = (() => {
+  const tableBody = document.querySelector(".table-body");
+  requestPHP("tenant-info.php", tableBody);
+})();
 function createSingleRow(tableBody, dataObject) {
   const data = Object.values(dataObject);
   const tableRow = document.createElement("tr");
@@ -87,11 +67,6 @@ const createRows = (tableBody, data) => {
     createSingleRow(tableBody, data[index]);
   }
 };
-const initializeTable = (() => {
-  let table = tablePreview();
-  previewSection.appendChild(table.table);
-  requestPHP("tenant-info.php", table.tableBody);
-})();
 
 function popUpAppear() {
   const parentElement = document.querySelector(".preview-section");
@@ -172,7 +147,7 @@ function removeTenant(tenantId) {
   );
   xhr.onload = function () {
     if (this.status == 200) {
-      console.log("success")
+      console.log("success");
     } else {
       console.log("xx");
     }
