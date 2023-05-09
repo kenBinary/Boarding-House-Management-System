@@ -79,7 +79,7 @@ function createPopUpSection() {
   popUpSection.classList.add("popup-modal-section");
   const popUp = document.createElement("form");
   popUp.classList.add("pop-up", "add-tenant-form");
-  popUp.setAttribute("action", "tenant-management-webpage.php");
+  popUp.setAttribute("action", "add-tenant.php");
   popUp.setAttribute("method", "post");
   popUpSection.appendChild(popUp);
   parentElement.appendChild(popUpSection);
