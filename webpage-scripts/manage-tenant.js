@@ -137,6 +137,7 @@ removeTenantButton.addEventListener("click", () => {
   let tenantText = tenant_id.textContent;
   var tenantId = tenantText.replace(/\D/g, "");
   removeTenant(tenantId);
+  location.reload();
 });
 function removeTenant(tenantId) {
   var xhr = new XMLHttpRequest();
