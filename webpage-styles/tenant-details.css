@@ -27,8 +27,11 @@
     height: 7%;
     padding: 2px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: start;
+    padding-left: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .remove-tenant{

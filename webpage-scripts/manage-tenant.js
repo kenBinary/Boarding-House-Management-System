@@ -12,14 +12,19 @@ function requestPHP(filePath, tableBody) {
   };
   xhr.send();
 }
-function retrieveRowData(tenantId,callback) {
+function retrieveRowData(tenantId, callback) {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "tenant-row-data.php" +'?tenantId=' + encodeURIComponent(tenantId), true);
+  xhr.open(
+    "GET",
+    "tenant-row-data.php" + "?tenantId=" + encodeURIComponent(tenantId),
+    true
+  );
+
   xhr.onload = function () {
     if (this.status == 200) {
       let data = JSON.parse(this.responseText);
       callback(data);
-      } else {
+    } else {
       console.log("xx");
     }
   };
@@ -28,8 +33,14 @@ function retrieveRowData(tenantId,callback) {
 
 function updateDetails(detailData) {
   let details = Array.from(document.querySelectorAll(".details"));
-  detailData.forEach((element,index) => {
-    details[index].textContent += ("" + element);
+  let detailText = [
+    "Tenant ID: ",
+    "First Name: ",
+    "Last Name: ",
+    " Contact Number: ",
+  ];
+  detailData.forEach((element, index) => {
+    details[index].textContent = detailText[index] + element;
   });
 }
 
@@ -67,8 +78,7 @@ function createSingleRow(tableBody, dataObject) {
   let y;
   tableRow.addEventListener("click", (e) => {
     let id = e.target.firstElementChild.textContent;
-    console.log(id)
-    retrieveRowData(id,updateDetails);
+    retrieveRowData(id, updateDetails);
   });
   tableBody.appendChild(tableRow);
 }
@@ -126,7 +136,7 @@ const addTenantPopUp = ((popUp) => {
   const submitButton = document.createElement("input");
   submitButton.setAttribute("type", "submit");
   submitButton.setAttribute("value", "Add Tenant");
-  submitButton.setAttribute("name", "submit");
+  submitButton.setAttribute("name", "add-tenant");
   const closeButton = document.createElement("div");
   closeButton.textContent = "close";
   popUpElements.push(closeButton);
@@ -146,3 +156,26 @@ addTenantPopUp.closeButton.addEventListener("click", () => {
   popUp.parentElement.classList.remove("show-popUp");
   popUp.parentElement.classList.add("hide-popUp");
 });
+const removeTenantButton = document.querySelector(".remove-tenant");
+removeTenantButton.addEventListener("click", () => {
+  let tenant_id = document.querySelector("#tenant-id");
+  let tenantText = tenant_id.textContent;
+  var tenantId = tenantText.replace(/\D/g, "");
+  removeTenant(tenantId);
+});
+function removeTenant(tenantId) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(
+    "GET",
+    "remove-tenant.php" + "?tenantId=" + encodeURIComponent(tenantId),
+    true
+  );
+  xhr.onload = function () {
+    if (this.status == 200) {
+      console.log("success")
+    } else {
+      console.log("xx");
+    }
+  };
+  xhr.send();
+}
