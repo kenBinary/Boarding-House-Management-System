@@ -1,3 +1,4 @@
+/* form layout */
 .assign {
   display: flex;
   flex-wrap: wrap;
@@ -7,7 +8,6 @@
 .assign > div {
   width: 100%;
   display: flex;
-  /* outline: 1px solid black; */
   padding: 5px;
 }
 .assign input {
@@ -16,13 +16,13 @@
 .assign > div:nth-child(n + 2):nth-child(-n + 3) {
   display: flex;
   flex-direction: column;
-  height: 20%;
+  height: 22%;
 }
 .assign > div:nth-child(n + 2):nth-child(-n + 3) > input {
   height: 100%;
 }
 .assign > div:nth-child(4) {
-  height: 20%;
+  height: 22%;
   column-gap: 1%;
   flex-wrap: wrap;
 }
@@ -32,14 +32,48 @@
   box-sizing: border-box;
 }
 .assign > div:nth-child(4) > input {
+  height: 65%;
   width: 49%;
 }
 .assign > :last-child {
   display: flex;
   justify-content: space-between;
-  height: 10%;
+  height: 12%;
 }
 .assign > :first-child {
   justify-content: center;
   height: 10%;
+}
+
+/* detail styles */
+.assign > :first-child {
+    font-size: 1.2rem;
+}
+.assign input{
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.assign >:last-child > input {
+    border: 1px solid #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #f8fafc;
+    transition: 0.2s ease-out;
+}
+.assign >:last-child > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1e293b;
+    width: 15%;
+    border-radius: 3px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+.assign >:last-child > div:hover,.assign >:last-child > input:hover{
+    transform: scale(1.03);
 }

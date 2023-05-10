@@ -130,6 +130,7 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
 }
 const popUpSection = (type) => {
   const parentElement = document.querySelector(".preview-section");
+  parentElement.classList.add("popup-appear");
   const popUpSection = document.createElement("div");
   popUpSection.classList.add("popup-modal-section");
   const popUp = document.createElement("form");
@@ -190,7 +191,7 @@ function createAssignPopUp() {
   inputs[1].setAttribute("type", "text");
   inputs[1].setAttribute("name", "amenity");
   inputs[1].setAttribute("id", "amenity-input");
-  inputs[1].setAttribute("value", "internet");
+  inputs[1].setAttribute("value", "Internet");
   inputs[1].setAttribute("readonly", "");
   divs[1].appendChild(labels[1]);
   divs[1].appendChild(inputs[1]);
@@ -219,7 +220,7 @@ function createAssignPopUp() {
   const closeDiv = document.createElement("div");
   closeDiv.textContent = "Close";
   inputs[4].setAttribute("type", "submit");
-  inputs[4].setAttribute("value", "submit");
+  inputs[4].setAttribute("value", "assign");
   inputs[4].setAttribute("name", "submit");
   divs[3].appendChild(closeDiv);
   divs[3].appendChild(inputs[4]);
