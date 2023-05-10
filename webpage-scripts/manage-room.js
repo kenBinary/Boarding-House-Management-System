@@ -7,7 +7,7 @@ optionsArray.forEach(option => {
         if (e.target != currentOption) {
             currentOption = e.target.lastElementChild.textContent;
             removeCards();
-            if (currentOption === "Room Availability") {
+            if (currentOption === "Room Information") {
                 requestPHP("available-room.php", currentOption);
             }
             else if (currentOption === "Assign Room") {
@@ -20,7 +20,7 @@ optionsArray.forEach(option => {
     });
 });
 const initializeCards = (() => {
-    const initialize = requestPHP("available-room.php", "Room Availability");
+    const initialize = requestPHP("available-room.php", "Room Information");
     return { initialize }
 })();
 function requestPHP(filePath, optionType) {
@@ -46,7 +46,7 @@ function removeCards() {
 function createCards(optionType, numOfCards, data) {
     for (let index = 0; index < numOfCards; index++) {
         let roomTypeClass = data[index]['room_type'] === "Single_Room" ? "single-bed" : "double-bed";
-        if (optionType === "Room Availability") {
+        if (optionType === "Room Information") {
             previewSection.appendChild(availableCard(roomTypeClass, data[index]));
         }
         else if (optionType === "Assign Room") {
