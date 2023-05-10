@@ -55,6 +55,9 @@
     flex-grow: 1;
     transition: 0.3s ease-out;
 }
+.preview-details-section > div > * {
+    pointer-events: none;
+}
 .preview-details-section > div:hover {
     background-color: rgba(225, 231, 239,1);
 }
