@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      :root{
+        box-sizing: border-box;
+      }
       body {
         height: 100vh;
         display: flex;
@@ -13,40 +16,33 @@
         align-items: center;
       }
       form {
-        border: 1px solid black;
-        height: 500px;
-        width: 500px;
+        outline: 1px solid black;
+        height: 250px;
+        width: 250px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
       }
+      form > :first-child{
+        width: 100%;
+        height: 10%;
+      }
+      form > input {
+        box-sizing: border-box;
+        width: 50%;
+        height: 90%;
+      }
+      
     </style>
   </head>
   <body>
     <form action="" method="post">
-        <div>Assign Room</div>
-
-      <div> 
-        <label for="tenant">Tenants</label>
-        <input list="tenant-list" name="tenant" id="tenant" />
-        <datalist id="tenant-list">
-        </datalist>
-      </div>
-
       <div>
-        <label for="amenity">Amenity</label>
-        <input readonly type="text" name="amenity" id="amenity-input" placeholder="Internet">
+        hello darkness
       </div>
-
-      <div>
-        <label for="utilities">Utilities</label>
-        <input  type="text" name="utility-elec" id="electricity" placeholder="Electricity">
-        <input type="text" name="utility-wat" id="utilities-water" placeholder="Water">
-      </div>
-
-      <div>
-        <div>
-            close
-        </div>
-        <input type="submit" value="submit" name="submit">
-      </div>
+      <input type="text">
+      <input type="text">
       
     </form>
   </body>

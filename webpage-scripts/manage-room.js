@@ -128,12 +128,12 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
     parentElement.appendChild(previewDetails);
   }
 }
-const popUpSection = () => {
+const popUpSection = (type) => {
   const parentElement = document.querySelector(".preview-section");
   const popUpSection = document.createElement("div");
   popUpSection.classList.add("popup-modal-section");
   const popUp = document.createElement("form");
-  popUp.classList.add("pop-up");
+  popUp.classList.add("pop-up",type);
   popUpSection.appendChild(popUp);
   parentElement.appendChild(popUpSection);
   return { popUpSection, popUp };
@@ -142,7 +142,7 @@ function removePopUpSection(popUpSection) {
   popUpSection.remove();
 }
 function createAssignPopUp() {
-  const sectionDiv = popUpSection();
+  const sectionDiv = popUpSection("assign");
 
   let popUp = sectionDiv.popUp;
   popUp.setAttribute("action", "test.php");
@@ -150,6 +150,7 @@ function createAssignPopUp() {
 
   const title = document.createElement("div");
   title.textContent = "Assign Room";
+  popUp.appendChild(title);
 
   const divs = [];
   for (let index = 0; index < 4; index++) {
