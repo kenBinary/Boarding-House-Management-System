@@ -6,6 +6,7 @@
 
 .add-tenant{
     position: absolute;
+    z-index: 999;
     bottom: 20px;
     right: 30px;
     background-image: url("../resources/plus.png");

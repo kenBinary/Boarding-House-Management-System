@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      :root{
-        box-sizing: border-box;
-      }
-      body {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      form {
-        outline: 1px solid black;
-        height: 250px;
-        width: 250px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-      }
-      form > :first-child{
-        width: 100%;
-        height: 10%;
-      }
-      form > input {
-        box-sizing: border-box;
-        width: 50%;
-        height: 90%;
-      }
-      
-    </style>
-  </head>
-  <body>
-    <form action="" method="post">
-      <div>
-        hello darkness
-      </div>
-      <input type="text">
-      <input type="text">
-      
-    </form>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .container {
+      height: 1300px;
+      overflow: auto;
+    }
+
+    .sticky-element {
+      position: sticky;
+      top: 0;
+      background-color: yellow;
+      padding: 10px;
+    }
+
+    .content {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="sticky-element">
+      <p>This element is sticky!</p>
+    </div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ipsum euismod, vehicula mauris eu, consequat
+        tellus. Quisque laoreet luctus risus, nec rhoncus nisi pellentesque vel. Duis interdum turpis in justo mollis,
+        et suscipit enim congue.</p>
+      <p>Donec in bibendum ex. Integer euismod mauris eget urna aliquam, ut feugiat quam semper. Sed auctor eleifend
+        erat, a ultrices augue pulvinar ut. Sed malesuada neque vitae felis pretium feugiat.</p>
+    </div>
+  </div>
+
+
+  </form>
+</body>
+
 </html>

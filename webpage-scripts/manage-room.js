@@ -42,16 +42,30 @@ function removeCards() {
   });
   previewCardsArr.length = 0;
 }
+// function createCards(optionType, numOfCards, data) {
+//   for (let index = 0; index < numOfCards; index++) {
+//     let roomTypeClass =
+//       data[index]["room_type"] === "Single_Room" ? "single-bed" : "double-bed";
+//     if (optionType === "Room Information") {
+//       previewSection.appendChild(availableCard(roomTypeClass, data[index]));
+//     } else if (optionType === "Assign Room") {
+//       previewSection.appendChild(assignCard(roomTypeClass, data[index]));
+//     } else if (optionType === "Free Room") {
+//       previewSection.appendChild(freeCard(roomTypeClass, data[index]));
+//     }
+//   }
+// }
 function createCards(optionType, numOfCards, data) {
+  let cardSection = document.querySelector(".card-section");
   for (let index = 0; index < numOfCards; index++) {
     let roomTypeClass =
       data[index]["room_type"] === "Single_Room" ? "single-bed" : "double-bed";
     if (optionType === "Room Information") {
-      previewSection.appendChild(availableCard(roomTypeClass, data[index]));
+      cardSection.appendChild(availableCard(roomTypeClass, data[index]));
     } else if (optionType === "Assign Room") {
-      previewSection.appendChild(assignCard(roomTypeClass, data[index]));
+      cardSection.appendChild(assignCard(roomTypeClass, data[index]));
     } else if (optionType === "Free Room") {
-      previewSection.appendChild(freeCard(roomTypeClass, data[index]));
+      cardSection.appendChild(freeCard(roomTypeClass, data[index]));
     }
   }
 }
@@ -118,7 +132,7 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
     previewDetails.appendChild(detailText);
     if (previewDetails.textContent === "Assign") {
       previewDetails.addEventListener("click", () => {
-        globalPopUp = createAssignPopUp();
+        globalPopUp = createAssignPopUp(removePopUpSection);
       });
     } else if (previewDetails.textContent === "Remove") {
       previewDetails.addEventListener("click", () => {
@@ -134,15 +148,17 @@ const popUpSection = (type) => {
   const popUpSection = document.createElement("div");
   popUpSection.classList.add("popup-modal-section");
   const popUp = document.createElement("form");
-  popUp.classList.add("pop-up",type);
+  popUp.classList.add("pop-up", type);
   popUpSection.appendChild(popUp);
   parentElement.appendChild(popUpSection);
   return { popUpSection, popUp };
 };
 function removePopUpSection(popUpSection) {
+  const parentElement = document.querySelector(".preview-section");
+  parentElement.classList.remove("popup-appear");
   popUpSection.remove();
 }
-function createAssignPopUp() {
+function createAssignPopUp(callback) {
   const sectionDiv = popUpSection("assign");
 
   let popUp = sectionDiv.popUp;
@@ -219,6 +235,9 @@ function createAssignPopUp() {
   //fourth div
   const closeDiv = document.createElement("div");
   closeDiv.textContent = "Close";
+  closeDiv.addEventListener('click', (e) => {
+    callback(globalPopUp)
+  });
   inputs[4].setAttribute("type", "submit");
   inputs[4].setAttribute("value", "assign");
   inputs[4].setAttribute("name", "submit");
@@ -228,4 +247,3 @@ function createAssignPopUp() {
 
   return sectionDiv.popUpSection;
 }
-createAssignPopUp(removePopUpSection);
