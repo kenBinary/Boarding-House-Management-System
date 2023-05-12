@@ -3,6 +3,7 @@ let previewCardsArr = Array.from(document.querySelectorAll(".preview-card"));
 let currentOption = optionsArray[0];
 let previewSection = document.querySelector(".preview-section");
 let globalPopUp;
+//code that handles cards
 optionsArray.forEach((option) => {
   option.addEventListener("click", (e) => {
     if (e.target != currentOption) {
@@ -36,38 +37,14 @@ function requestPHP(filePath, optionType) {
   xhr.send();
 }
 function removeCards() {
+  if (globalPopUp) {
+    removePopUpSection(globalPopUp);
+  }
   previewCardsArr.forEach((element) => {
     let parentNode = element.parentElement;
     parentNode.removeChild(element);
   });
   previewCardsArr.length = 0;
-}
-// function createCards(optionType, numOfCards, data) {
-//   for (let index = 0; index < numOfCards; index++) {
-//     let roomTypeClass =
-//       data[index]["room_type"] === "Single_Room" ? "single-bed" : "double-bed";
-//     if (optionType === "Room Information") {
-//       previewSection.appendChild(availableCard(roomTypeClass, data[index]));
-//     } else if (optionType === "Assign Room") {
-//       previewSection.appendChild(assignCard(roomTypeClass, data[index]));
-//     } else if (optionType === "Free Room") {
-//       previewSection.appendChild(freeCard(roomTypeClass, data[index]));
-//     }
-//   }
-// }
-function createCards(optionType, numOfCards, data) {
-  let cardSection = document.querySelector(".card-section");
-  for (let index = 0; index < numOfCards; index++) {
-    let roomTypeClass =
-      data[index]["room_type"] === "Single_Room" ? "single-bed" : "double-bed";
-    if (optionType === "Room Information") {
-      cardSection.appendChild(availableCard(roomTypeClass, data[index]));
-    } else if (optionType === "Assign Room") {
-      cardSection.appendChild(assignCard(roomTypeClass, data[index]));
-    } else if (optionType === "Free Room") {
-      cardSection.appendChild(freeCard(roomTypeClass, data[index]));
-    }
-  }
 }
 const baseCard = (roomType) => {
   const card = document.createElement("div");
@@ -120,6 +97,7 @@ const freeCard = (roomTypeClass, data) => {
   createPreviewDetails(previewDetailsSection, imageSource, pText);
   return card;
 };
+
 function createPreviewDetails(parentElement, imageSource, textContent) {
   for (let index = 0; index < imageSource.length; index++) {
     const previewDetails = document.createElement("div");
@@ -132,7 +110,12 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
     previewDetails.appendChild(detailText);
     if (previewDetails.textContent === "Assign") {
       previewDetails.addEventListener("click", () => {
-        globalPopUp = createAssignPopUp(removePopUpSection);
+        // globalPopUp = createAssignPopUp(removePopUpSection);
+        //retrieve tenants with no room
+        //add tenants to datalist as options
+        let popUp = assignPopUp(removePopUpSection);
+        globalPopUp = popUp.sectionDiv.popUpSection;
+        requestTenant(popUp.dataList)
       });
     } else if (previewDetails.textContent === "Remove") {
       previewDetails.addEventListener("click", () => {
@@ -142,6 +125,47 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
     parentElement.appendChild(previewDetails);
   }
 }
+function createCards(optionType, numOfCards, data) {
+  let cardSection = document.querySelector(".card-section");
+  for (let index = 0; index < numOfCards; index++) {
+    let roomTypeClass =
+      data[index]["room_type"] === "Single_Room" ? "single-bed" : "double-bed";
+    if (optionType === "Room Information") {
+      cardSection.appendChild(availableCard(roomTypeClass, data[index]));
+    } else if (optionType === "Assign Room") {
+      cardSection.appendChild(assignCard(roomTypeClass, data[index]));
+    } else if (optionType === "Free Room") {
+      cardSection.appendChild(freeCard(roomTypeClass, data[index]));
+    }
+  }
+}
+// getting tenants without root
+let tenants;
+function requestTenant(datalist) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "free-tenants.php", true);
+  xhr.onload = function () {
+    if (this.status == 200) {
+      let data = JSON.parse(this.responseText);
+      addOptions(data,datalist);
+    } else {
+      console.log("error retrieving data");
+    }
+  };
+  xhr.send();
+}
+// requestTenant();
+// adding options to datalist
+function addOptions(data, datalist) {
+  data.forEach((element) => {
+    const name = element['firstName'] + " " + element['lastName'];
+    const option = document.createElement("option");
+    option.setAttribute("value", name);
+    datalist.appendChild(option);
+  });
+}
+
+//code for assign room popup
 const popUpSection = (type) => {
   const parentElement = document.querySelector(".preview-section");
   parentElement.classList.add("popup-appear");
@@ -158,7 +182,8 @@ function removePopUpSection(popUpSection) {
   parentElement.classList.remove("popup-appear");
   popUpSection.remove();
 }
-function createAssignPopUp(callback) {
+
+const assignPopUp = (callback) => {
   const sectionDiv = popUpSection("assign");
 
   let popUp = sectionDiv.popUp;
@@ -244,6 +269,5 @@ function createAssignPopUp(callback) {
   divs[3].appendChild(closeDiv);
   divs[3].appendChild(inputs[4]);
   popUp.appendChild(divs[3]);
-
-  return sectionDiv.popUpSection;
+  return { sectionDiv, dataList };
 }
