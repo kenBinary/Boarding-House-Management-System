@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tenant Management</title>
-    <link rel="stylesheet" href="webpage-styles/layout-normalization.css">
-    <link rel="stylesheet" href="webpage-styles/sidebar-style.css">
-    <link rel="stylesheet" href="webpage-styles/main-section-style.css">
-    <link rel="stylesheet" href="webpage-styles/details-section-style.css">
-    <link rel="stylesheet" href="webpage-styles/preview-section-style.css">
-    <link rel="stylesheet" href="webpage-styles/tenant-table.css">
-    <link rel="stylesheet" href="webpage-styles/add-tenant.css">
-</head>
+    <link rel="stylesheet" href="webpage-styles/layout-normalization.css" />
+    <link rel="stylesheet" href="webpage-styles/sidebar-style.css" />
+    <link rel="stylesheet" href="webpage-styles/main-section-style.css" />
+    <link rel="stylesheet" href="webpage-styles/details-section-style.css" />
+    <link rel="stylesheet" href="webpage-styles/preview-section-style.css" />
+    <link rel="stylesheet" href="webpage-styles/tenant-table.css" />
+    <link rel="stylesheet" href="webpage-styles/add-tenant.css" />
+    <link rel="stylesheet" href="webpage-styles/tenant-details.css" />
+  </head>
 
-<body>
+  <body>
     <div class="dashboard-sidebar">
-        <div class="sidebar-options">
-            <div class="sidebar-logo">
-                <img src="resources/small-house.png" alt="app logo" srcset="">
-                <p>XYZ Boardinghouse</p>
-            </div>
-            <a href="dashboard.php">
-                <img src="icons/dashboardIcons/dashboard-icon.png" alt="">
-                <p>Dashboard</p>
-            </a>
-            <a href="room-management-webpage.php">
-                <img src="icons/roomIcons/room-icons.png" alt="" srcset="">
-                <p>Room Management</p>
-            </a>
-            <a href="tenant-management-webpage.php">
-                <img src="icons/tenantIcons/people-icon.png" alt="" srcset="">
-                <p>Tenant Management</p>
-            </a>
-            <a href="payment-management-webpage.php">
-                <img src="icons/paymentIcons/payment-icon.png" alt="" srcset="">
-                <p>Payment Management</p>
-            </a>
+      <div class="sidebar-options">
+        <div class="sidebar-logo">
+          <img src="resources/small-house.png" alt="app logo" srcset="" />
+          <p>XYZ Boardinghouse</p>
         </div>
-        <a href="logout.php" class="signout" onclick="return confirm('Are you sure you want to log out?');">
-            <img src="icons/logout-icon.png" alt="" srcset="">
-            <p>Logout</p>
+        <a href="dashboard.php">
+          <img src="icons/dashboardIcons/dashboard-icon.png" alt="" />
+          <p>Dashboard</p>
         </a>
+        <a href="room-management-webpage.php">
+          <img src="icons/roomIcons/room-icons.png" alt="" srcset="" />
+          <p>Room Management</p>
+        </a>
+        <a href="tenant-management-webpage.php">
+          <img src="icons/tenantIcons/people-icon.png" alt="" srcset="" />
+          <p>Tenant Management</p>
+        </a>
+        <a href="payment-management-webpage.php">
+          <img src="icons/paymentIcons/payment-icon.png" alt="" srcset="" />
+          <p>Payment Management</p>
+        </a>
+      </div>
+      <a
+        href="logout.php"
+        class="signout"
+        onclick="return confirm('Are you sure you want to log out?');"
+      >
+        <img src="icons/logout-icon.png" alt="" srcset="" />
+        <p>Logout</p>
+      </a>
     </div>
     <div class="main-section">
-        <div class="option-section">
-            <div class="option">
-                <img src="icons/tenantIcons/tenant-info.png" alt="" srcset="">
-                <p>Tenant Info</p>
-            </div>
+      <div class="option-section">
+        <div class="option">
+          <img src="icons/tenantIcons/tenant-info.png" alt="" srcset="" />
+          <p>Tenant Info</p>
         </div>
-        <div class="preview-section">
-            <div class="add-tenant">
-            </div>
-        </div>
+      </div>
+      <div class="preview-section">
+        <div class="add-tenant"></div>
+        <table class="table-preview">
+          <thead>
+            <tr>
+              <th>TenantID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Contact Number</th>
+            </tr>
+          </thead>
+          <tbody class="table-body"></tbody>
+        </table>
+      </div>
     </div>
-    <div class="details-section">
-        details
-    </div>
+    <form action="" method="post" class="details-section">
+      <div class="tenant-details-section">
+        <div class="image-holder">image</div>
+        <div class="details" id="tenant-id">Tenant ID:</div>
+        <div class="details">First Name:</div>
+        <div class="details">Last Name:</div>
+        <div class="details">Contact Number:</div>
+      </div>
+      <div class="remove-tenant">Remove Tenant</div>
+    </form>
     <script src="webpage-scripts/manage-tenant.js"></script>
-</body>
-
+  </body>
 </html>

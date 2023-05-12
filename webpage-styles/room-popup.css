@@ -1,0 +1,109 @@
+/* form layout */
+.assign {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5px;
+}
+.assign > div {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+}
+.assign input {
+  text-align: center;
+}
+.assign > div:nth-child(n + 2):nth-child(-n + 3) {
+  display: flex;
+  flex-direction: column;
+  height: 22%;
+}
+.assign > div:nth-child(n + 2):nth-child(-n + 3) > input {
+  height: 100%;
+}
+.assign select {
+  height: 100%;
+}
+.assign > div:nth-child(4) {
+  height: 22%;
+  column-gap: 1%;
+  flex-wrap: wrap;
+}
+.assign > div:nth-child(4) > :first-child {
+  height: 30%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.assign > div:nth-child(4) > input {
+  height: 65%;
+  width: 49%;
+}
+.assign > :last-child {
+  display: flex;
+  justify-content: space-between;
+  height: 12%;
+}
+.assign > :first-child {
+  justify-content: center;
+  height: 10%;
+}
+.assign > div:nth-child(3){
+  display: flex !important;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  align-items: center;
+  column-gap: 2px;
+}
+
+.assign > div:nth-child(3) > :nth-child(1){
+  height: 30%;
+  width: 100%;
+
+}
+.assign > div:nth-child(3) > :nth-child(2){
+  height: 70% !important;
+  width: 6%;
+
+}
+.assign > div:nth-child(3) > :nth-child(3){
+  height: 70% !important;
+  width: 90%;
+}
+
+
+/* detail styles */
+.assign > :first-child {
+    font-size: 1.2rem;
+}
+.assign input{
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.assign >:last-child > input {
+    border: 1px solid #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #f8fafc;
+    transition: 0.2s ease-out;
+}
+.assign >:last-child > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1e293b;
+    width: 15%;
+    border-radius: 3px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+.assign >:last-child > div:hover,.assign >:last-child > input:hover{
+    transform: scale(1.03);
+}
+.assign select {
+  font-weight: bold;
+  font-size: 1rem;
+}

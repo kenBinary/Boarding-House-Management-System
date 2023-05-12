@@ -4,9 +4,9 @@
     height: 85% !important;
 }
 
-.add-tenant,
-.remove-tenant {
+.add-tenant{
     position: absolute;
+    z-index: 999;
     bottom: 20px;
     right: 30px;
     background-image: url("../resources/plus.png");
@@ -40,6 +40,9 @@
     display: flex;
     width: 100%;
     height: 10%;
+}
+td{
+    pointer-events: none;
 }
 
 .table-preview>thead>tr {
@@ -77,12 +80,13 @@
     padding: 5px;
 }
 
-.table-preview tbody tr {
+.table-preview > tbody > tr {
     transition: 0.1s ease-out;
 }
 
-.table-preview tbody tr:hover {
+.table-preview > tbody > tr:hover {
     background-color: rgba(148, 163, 184, 0.5);
+    transform: scaleY(1.1);
 }
 
 .table-preview tr {
