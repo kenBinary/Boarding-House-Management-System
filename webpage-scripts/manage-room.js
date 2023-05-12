@@ -110,9 +110,6 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
     previewDetails.appendChild(detailText);
     if (previewDetails.textContent === "Assign") {
       previewDetails.addEventListener("click", () => {
-        // globalPopUp = createAssignPopUp(removePopUpSection);
-        //retrieve tenants with no room
-        //add tenants to datalist as options
         let popUp = assignPopUp(removePopUpSection);
         globalPopUp = popUp.sectionDiv.popUpSection;
         requestTenant(popUp.dataList)
@@ -154,13 +151,13 @@ function requestTenant(datalist) {
   };
   xhr.send();
 }
-// requestTenant();
-// adding options to datalist
 function addOptions(data, datalist) {
   data.forEach((element) => {
+    const id = element['tenantId'];
     const name = element['firstName'] + " " + element['lastName'];
     const option = document.createElement("option");
-    option.setAttribute("value", name);
+    option.setAttribute("value", id);
+    option.textContent = name;
     datalist.appendChild(option);
   });
 }
@@ -182,6 +179,7 @@ function removePopUpSection(popUpSection) {
   parentElement.classList.remove("popup-appear");
   popUpSection.remove();
 }
+
 
 const assignPopUp = (callback) => {
   const sectionDiv = popUpSection("assign");
@@ -213,28 +211,32 @@ const assignPopUp = (callback) => {
   }
 
   //first div
-  let dataList = document.createElement("datalist");
+  let dataList = document.createElement("select");
   dataList.setAttribute("id", "tenant-list");
-  const firstDivElements = [labels[0], inputs[0], dataList];
+  dataList.setAttribute("name", "tenant-list");
+  const firstDivElements = [labels[0], dataList];
   labels[0].setAttribute("for", "tenant");
   labels[0].textContent = "Tenants";
-  inputs[0].setAttribute("list", "tenant-list");
-  inputs[0].setAttribute("name", "tenant");
-  inputs[0].setAttribute("id", "tenant");
   firstDivElements.forEach((element) => {
     divs[0].appendChild(element);
   });
   popUp.appendChild(divs[0]);
 
   //second div
-  labels[1].setAttribute("for", "amenity");
+  labels[1].setAttribute("for", "amenity-input");
   labels[1].textContent = "Amenity";
+  const checkBox = document.createElement('input');
+  checkBox.setAttribute("type","checkbox");
+  checkBox.setAttribute("id","amenity");
+  checkBox.setAttribute("name","amenity");
+  checkBox.setAttribute("value","internet");
   inputs[1].setAttribute("type", "text");
-  inputs[1].setAttribute("name", "amenity");
+  inputs[1].setAttribute("name", "amenity-input");
   inputs[1].setAttribute("id", "amenity-input");
-  inputs[1].setAttribute("value", "Internet");
+  inputs[1].setAttribute("value", "Internet-input");
   inputs[1].setAttribute("readonly", "");
   divs[1].appendChild(labels[1]);
+  divs[1].appendChild(checkBox);
   divs[1].appendChild(inputs[1]);
   popUp.appendChild(divs[1]);
 
@@ -271,3 +273,4 @@ const assignPopUp = (callback) => {
   popUp.appendChild(divs[3]);
   return { sectionDiv, dataList };
 }
+// let popUp = assignPopUp(removePopUpSection);

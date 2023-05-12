@@ -21,6 +21,9 @@
 .assign > div:nth-child(n + 2):nth-child(-n + 3) > input {
   height: 100%;
 }
+.assign select {
+  height: 100%;
+}
 .assign > div:nth-child(4) {
   height: 22%;
   column-gap: 1%;
@@ -44,6 +47,29 @@
   justify-content: center;
   height: 10%;
 }
+.assign > div:nth-child(3){
+  display: flex !important;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  align-items: center;
+  column-gap: 2px;
+}
+
+.assign > div:nth-child(3) > :nth-child(1){
+  height: 30%;
+  width: 100%;
+
+}
+.assign > div:nth-child(3) > :nth-child(2){
+  height: 70% !important;
+  width: 6%;
+
+}
+.assign > div:nth-child(3) > :nth-child(3){
+  height: 70% !important;
+  width: 90%;
+}
+
 
 /* detail styles */
 .assign > :first-child {
@@ -76,4 +102,8 @@
 }
 .assign >:last-child > div:hover,.assign >:last-child > input:hover{
     transform: scale(1.03);
+}
+.assign select {
+  font-weight: bold;
+  font-size: 1rem;
 }
