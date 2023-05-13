@@ -12,9 +12,9 @@ optionsArray.forEach((option) => {
       if (currentOption === "Room Information") {
         requestPHP("available-room.php", currentOption);
       } else if (currentOption === "Assign Room") {
-        requestPHP("assign-room.php", currentOption);
+        requestPHP("free-rooms.php", currentOption);
       } else if (currentOption === "Free Room") {
-        requestPHP("free-room.php", currentOption);
+        requestPHP("occupied-rooms.php", currentOption);
       }
     }
   });
@@ -75,25 +75,29 @@ const availableCard = (roomTypeClass, data) => {
 };
 const assignCard = (roomTypeClass, data) => {
   const { card, previewDetailsSection } = baseCard(roomTypeClass);
-  let roomType =
-    data["room_type"] === "Single_Room" ? "Single Room" : "Double Room";
+  let roomType = data["room_type"] === "Single_Room" ? "Single Room" : "Double Room";
+  let roomNumber = data["roomNumber"];
+
   let imageSource = [
+    "icons/roomIcons/room-number.png",
     "icons/roomIcons/room-asign.png",
     "icons/roomIcons/available-room.png",
   ];
-  let pText = ["Assign", roomType];
+  let pText = [roomNumber, "Assign", roomType];
   createPreviewDetails(previewDetailsSection, imageSource, pText);
   return card;
 };
 const freeCard = (roomTypeClass, data) => {
   const { card, previewDetailsSection } = baseCard(roomTypeClass);
-  let roomType =
-    data["room_type"] === "Single_Room" ? "Single Room" : "Double Room";
+  let roomType = data["room_type"] === "Single_Room" ? "Single Room" : "Double Room";
+  let roomNumber = data["roomNumber"];
+
   let imageSource = [
+    "icons/roomIcons/room-number.png",
     "icons/roomIcons/room-remove.png",
     "icons/roomIcons/room-occupants.png",
   ];
-  let pText = ["Remove", roomType];
+  let pText = [roomNumber, "Remove", roomType];
   createPreviewDetails(previewDetailsSection, imageSource, pText);
   return card;
 };
@@ -109,8 +113,8 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
     previewDetails.appendChild(detailImage);
     previewDetails.appendChild(detailText);
     if (previewDetails.textContent === "Assign") {
-      previewDetails.addEventListener("click", () => {
-        let popUp = assignPopUp(removePopUpSection);
+      previewDetails.addEventListener("click", (e) => {
+        let popUp = assignPopUp(removePopUpSection,e.target);
         globalPopUp = popUp.sectionDiv.popUpSection;
         requestTenant(popUp.dataList)
       });
@@ -144,7 +148,7 @@ function requestTenant(datalist) {
   xhr.onload = function () {
     if (this.status == 200) {
       let data = JSON.parse(this.responseText);
-      addOptions(data,datalist);
+      addOptions(data, datalist);
     } else {
       console.log("error retrieving data");
     }
@@ -181,11 +185,14 @@ function removePopUpSection(popUpSection) {
 }
 
 
-const assignPopUp = (callback) => {
-  const sectionDiv = popUpSection("assign");
+const assignPopUp = (callback,targetElement) => {
+  let element = targetElement;
+  let roomNumber = element.parentElement.firstElementChild.textContent;
 
+  const sectionDiv = popUpSection("assign");
   let popUp = sectionDiv.popUp;
-  popUp.setAttribute("action", "test.php");
+  popUp.setAttribute("action", "assign-room.php");
+  // popUp.setAttribute("action", "room-management-webpage.php");
   popUp.setAttribute("method", "post");
 
   const title = document.createElement("div");
@@ -210,6 +217,7 @@ const assignPopUp = (callback) => {
     inputs.push(input);
   }
 
+
   //first div
   let dataList = document.createElement("select");
   dataList.setAttribute("id", "tenant-list");
@@ -226,14 +234,14 @@ const assignPopUp = (callback) => {
   labels[1].setAttribute("for", "amenity-input");
   labels[1].textContent = "Amenity";
   const checkBox = document.createElement('input');
-  checkBox.setAttribute("type","checkbox");
-  checkBox.setAttribute("id","amenity");
-  checkBox.setAttribute("name","amenity");
-  checkBox.setAttribute("value","internet");
+  checkBox.setAttribute("type", "checkbox");
+  checkBox.setAttribute("id", "amenity");
+  checkBox.setAttribute("name", "amenity");
+  checkBox.setAttribute("value", "1");
   inputs[1].setAttribute("type", "text");
   inputs[1].setAttribute("name", "amenity-input");
   inputs[1].setAttribute("id", "amenity-input");
-  inputs[1].setAttribute("value", "Internet-input");
+  inputs[1].setAttribute("value", "Internet");
   inputs[1].setAttribute("readonly", "");
   divs[1].appendChild(labels[1]);
   divs[1].appendChild(checkBox);
@@ -267,10 +275,17 @@ const assignPopUp = (callback) => {
   });
   inputs[4].setAttribute("type", "submit");
   inputs[4].setAttribute("value", "assign");
-  inputs[4].setAttribute("name", "submit");
+  inputs[4].setAttribute("name", "assign-tenant");
   divs[3].appendChild(closeDiv);
   divs[3].appendChild(inputs[4]);
   popUp.appendChild(divs[3]);
+
+  //hidden input for room number
+  const roomNumberInput = document.createElement("input");
+  roomNumberInput.setAttribute("type", "hidden");
+  roomNumberInput.setAttribute("name", "room_number");
+  roomNumberInput.setAttribute("value", roomNumber);
+  popUp.appendChild(roomNumberInput);
+
   return { sectionDiv, dataList };
 }
-// let popUp = assignPopUp(removePopUpSection);

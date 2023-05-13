@@ -38,7 +38,7 @@
   height: 65%;
   width: 49%;
 }
-.assign > :last-child {
+.assign > :nth-child(5) {
   display: flex;
   justify-content: space-between;
   height: 12%;
@@ -69,6 +69,10 @@
   height: 70% !important;
   width: 90%;
 }
+.assign input[type="hidden"]{
+  position: absolute;
+}
+
 
 
 /* detail styles */
@@ -80,28 +84,29 @@
     font-weight: bold;
     cursor: pointer;
 }
-.assign >:last-child > input {
-    border: 1px solid #1e293b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    background-color: #f8fafc;
-    transition: 0.2s ease-out;
+
+.assign >:nth-child(5) > input {
+  border: 1px solid #1e293b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  background-color: #f8fafc;
+  transition: 0.2s ease-out;
 }
-.assign >:last-child > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #1e293b;
-    width: 15%;
-    border-radius: 3px;
-    background-color: #f8fafc;
-    cursor: pointer;
-    transition: 0.2s ease-out;
+.assign >:nth-child(5) > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1e293b;
+  width: 15%;
+  border-radius: 3px;
+  background-color: #f8fafc;
+  cursor: pointer;
+  transition: 0.2s ease-out;
 }
-.assign >:last-child > div:hover,.assign >:last-child > input:hover{
-    transform: scale(1.03);
+.assign >:nth-child(5) > div:hover,.assign >:nth-child(5) > input:hover{
+  transform: scale(1.03);
 }
 .assign select {
   font-weight: bold;
