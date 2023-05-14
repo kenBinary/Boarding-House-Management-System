@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="webpage-styles/main-section-style.css">
     <link rel="stylesheet" href="webpage-styles/details-section-style.css">
     <link rel="stylesheet" href="webpage-styles/preview-section-style.css">
+    <link rel="stylesheet" href="webpage-styles/payment-table.css">
 </head>
 
 <body>
@@ -61,27 +62,31 @@
                 <p>Amenity</p>
             </div>
         </div>
-        <div class="preview-section">
-            <div class="preview-card">
-                <div class="preview-image single-bed">
-                </div>
-                <div class="preview-details-section">
-                    <div class="preview-details">
-                        <img src="icons/roomIcons/available-room.png" alt="" srcset="">
-                        <p>dasdf</p>
-                    </div>
-                    <div class="preview-details">
-                        <img src="icons/roomIcons/available-room.png" alt="" srcset="">
-                        <p>Occupied</p>
-                    </div>
-                    <div class="preview-details">
-                        <img src="icons/roomIcons/available-room.png" alt="" srcset="">
-                        <p>Double</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <form action="" method="get" class="preview-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Amenity</th>
+                        <th>Room</th>
+                        <th>Utility</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Jhon Doe</td>
+                        <td><input type="submit" value="Internet" name="amenity"></td>
+                        <td><input type="submit" value="Single Room" name="room"></td>
+                        <td>
+                            <input type="submit" value="Electricity" name="utility_1">
+                            <input type="submit" value="Water" name="utility_2">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
     <div class="details-section">
         details
