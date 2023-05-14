@@ -25,6 +25,8 @@ if (isset($_POST['assign-tenant'])) {
     mysqli_query($conn, $tenant_utility);
     $room_utility = "INSERT INTO `roomutility`(`room_number`, `utility_id`) VALUES ('{$room_number}','1'),('{$room_number}','2')";
     mysqli_query($conn, $room_utility);
+    $room_status = "UPDATE room SET roomStatus = TRUE WHERE roomNumber = '{$room_number}'";
+    mysqli_query($conn, $room_status);
 }
 header("Location: room-management-webpage.php");
 exit();

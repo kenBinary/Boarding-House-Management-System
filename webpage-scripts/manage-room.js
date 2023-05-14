@@ -114,13 +114,15 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
     previewDetails.appendChild(detailText);
     if (previewDetails.textContent === "Assign") {
       previewDetails.addEventListener("click", (e) => {
-        let popUp = assignPopUp(removePopUpSection,e.target);
+        let popUp = assignPopUp(removePopUpSection, e.target);
         globalPopUp = popUp.sectionDiv.popUpSection;
         requestTenant(popUp.dataList)
       });
     } else if (previewDetails.textContent === "Remove") {
-      previewDetails.addEventListener("click", () => {
-        console.log("bruh");
+      previewDetails.addEventListener("click", (e) => {
+        let roomNumber = e.target.parentElement.firstElementChild.textContent;
+        removeTenant(roomNumber);
+        location.reload();
       });
     }
     parentElement.appendChild(previewDetails);
@@ -140,8 +142,21 @@ function createCards(optionType, numOfCards, data) {
     }
   }
 }
-// getting tenants without root
-let tenants;
+//ajax for removing tenants from room
+function removeTenant(roomNumber) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "remove-room.php" + "?roomNumber=" + encodeURIComponent(roomNumber), true);
+  xhr.onload = function () {
+    if (this.status == 200) {
+      console.log("remove Success");
+    } else {
+      console.log("error retrieving data");
+    }
+  };
+  xhr.send();
+}
+
+// getting tenants without room
 function requestTenant(datalist) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "free-tenants.php", true);
@@ -184,15 +199,13 @@ function removePopUpSection(popUpSection) {
   popUpSection.remove();
 }
 
-
-const assignPopUp = (callback,targetElement) => {
+const assignPopUp = (callback, targetElement) => {
   let element = targetElement;
   let roomNumber = element.parentElement.firstElementChild.textContent;
 
   const sectionDiv = popUpSection("assign");
   let popUp = sectionDiv.popUp;
   popUp.setAttribute("action", "assign-room.php");
-  // popUp.setAttribute("action", "room-management-webpage.php");
   popUp.setAttribute("method", "post");
 
   const title = document.createElement("div");
