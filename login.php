@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['loggedin'] = true;
         setcookie('userLoginer', $username, time() + 5);
-        header('Location: dashboard.php');
+        header('Location: room-management-webpage.php');
         exit;
     } else {
         echo "<script>alert('Invalid login');</script>";
