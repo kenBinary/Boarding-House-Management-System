@@ -12,6 +12,39 @@ function requestPHP(filePath, tableBody) {
   };
   xhr.send();
 }
+// function retrieveRowData(tenantId, callback) {
+//   var xhr = new XMLHttpRequest();
+//   xhr.open(
+//     "GET",
+//     "tenant-row-data.php" + "?tenantId=" + encodeURIComponent(tenantId),
+//     true
+//   );
+
+//   xhr.onload = function () {
+//     if (this.status == 200) {
+//       let data = JSON.parse(this.responseText);
+//       callback(data);
+//     } else {
+//       console.log("xx");
+//     }
+//   };
+//   xhr.send();
+// }
+
+// function updateDetails(detailData) {
+//   let details = Array.from(document.querySelectorAll(".details"));
+//   let detailText = [
+//     "Tenant ID: ",
+//     "First Name: ",
+//     "Last Name: ",
+//     " Contact Number: ",
+//   ];
+//   detailData.forEach((element, index) => {
+//     details[index].textContent = detailText[index] + element;
+//   });
+// }
+
+////////////
 function retrieveRowData(tenantId, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open(
@@ -35,6 +68,7 @@ function updateDetails(detailData) {
   let details = Array.from(document.querySelectorAll(".details"));
   let detailText = [
     "Tenant ID: ",
+    "Room Number: ",
     "First Name: ",
     "Last Name: ",
     " Contact Number: ",
@@ -43,6 +77,9 @@ function updateDetails(detailData) {
     details[index].textContent = detailText[index] + element;
   });
 }
+
+
+///////
 const initializeTable = (() => {
   const tableBody = document.querySelector(".table-body");
   requestPHP("tenant-info.php", tableBody);
@@ -105,7 +142,7 @@ const addTenantPopUp = ((popUp) => {
     input.setAttribute("type", inputTypes[index]);
     input.setAttribute("name", inputNames[index]);
     input.setAttribute("id", inputID[index]);
-    input.setAttribute("required","");
+    input.setAttribute("required", "");
     popUpElements.push(label);
     popUpElements.push(input);
   });

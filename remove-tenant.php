@@ -10,4 +10,6 @@ if ($notAllowed > 0) {
     $deleteTenant = "DELETE FROM tenant where tenantId= '{$tenantId}'";
     mysqli_query($conn, $deleteNumber);
     mysqli_query($conn, $deleteTenant);
+    $deleted = 0;
+    echo json_encode($deleted);
 }
