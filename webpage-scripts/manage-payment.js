@@ -53,7 +53,7 @@ function createRecord(data) {
     data.forEach((element, index, array) => {
         const cell = document.createElement('td');
         const inputID = ['room', 'amenity'];
-        const amenityID = ['Electricity', 'Water'];
+        const amenityID = ['Water', 'Electricity'];
         let amenityIndex = 0;
         if (index === 2) {
             const input = document.createElement('input');
@@ -62,15 +62,37 @@ function createRecord(data) {
             input.setAttribute("name", inputID[0]);
             input.setAttribute("value", array[6] === 'Single_Room' ? 'Single Room' : 'Double Room');
             input.setAttribute("class", element == 1 ? 'paid' : 'unpaid');
+            input.addEventListener('mouseover', (e) => {
+                const hiddenInputTenant = document.querySelector("#hidden_tenantId");
+                let tenant_id = e.target.parentElement.parentElement.firstElementChild.textContent;
+                hiddenInputTenant.setAttribute("value", tenant_id);
+
+                const hiddenStatus = document.querySelector("#hidden_status");
+                let status = e.target.getAttribute("class") == "paid" ? '1' : '0';
+                hiddenStatus.setAttribute("value", status);
+            });
             cell.appendChild(input);
         }
         else if (index === 3) {
+
             const input = document.createElement('input');
+            input.addEventListener('click', () => {
+                console.log("laskdjf");
+            });
             input.setAttribute("id", inputID[1]);
             input.setAttribute("name", inputID[1]);
             input.setAttribute("type", "submit");
             input.setAttribute("value", "internet");
             input.setAttribute("class", element == 1 ? 'paid' : 'unpaid');
+            input.addEventListener('mouseover', (e) => {
+                const hiddenInputTenant = document.querySelector("#hidden_tenantId");
+                let tenant_id = e.target.parentElement.parentElement.firstElementChild.textContent;
+                hiddenInputTenant.setAttribute("value", tenant_id);
+
+                const hiddenStatus = document.querySelector("#hidden_status");
+                let status = e.target.getAttribute("class") == "paid" ? '1' : '0';
+                hiddenStatus.setAttribute("value", status);
+            });
             cell.appendChild(input);
         }
         else if (index === 4) {
@@ -81,6 +103,15 @@ function createRecord(data) {
             electricityInput.setAttribute("value", amenityID[amenityIndex]);
             electricityInput.setAttribute("class", element == 1 ? 'paid' : 'unpaid');
             cell.appendChild(electricityInput);
+            electricityInput.addEventListener('mouseover', (e) => {
+                const hiddenInputTenant = document.querySelector("#hidden_tenantId");
+                let tenant_id = e.target.parentElement.parentElement.firstElementChild.textContent;
+                hiddenInputTenant.setAttribute("value", tenant_id);
+
+                const hiddenStatus = document.querySelector("#hidden_status");
+                let status = e.target.getAttribute("class") == "paid" ? '1' : '0';
+                hiddenStatus.setAttribute("value", status);
+            });
             amenityIndex++;
 
             const waterINput = document.createElement('input');
@@ -89,6 +120,15 @@ function createRecord(data) {
             waterINput.setAttribute("type", "submit");
             waterINput.setAttribute("value", amenityID[amenityIndex]);
             waterINput.setAttribute("class", array[index + 1] == 1 ? 'paid' : 'unpaid');
+            waterINput.addEventListener('mouseover', (e) => {
+                const hiddenInputTenant = document.querySelector("#hidden_tenantId");
+                let tenant_id = e.target.parentElement.parentElement.firstElementChild.textContent;
+                hiddenInputTenant.setAttribute("value", tenant_id);
+
+                const hiddenStatus = document.querySelector("#hidden_status");
+                let status = e.target.getAttribute("class") == "paid" ? '1' : '0';
+                hiddenStatus.setAttribute("value", status);
+            });
             cell.appendChild(waterINput);
         }
         else if (index === 5 || index === 6) {
@@ -102,6 +142,19 @@ function createRecord(data) {
     tableBody.appendChild(row);
 }
 function createRecords(dataList) {
+    const tableBody = document.querySelector(".table-body");
+    let hiddenTenantID = document.createElement('input');
+    hiddenTenantID.setAttribute("type", "hidden");
+    hiddenTenantID.setAttribute("id", "hidden_tenantId");
+    hiddenTenantID.setAttribute("name", "tenant_id");
+
+    let hiddenStatus = document.createElement('input');
+    hiddenStatus.setAttribute("type", "hidden");
+    hiddenStatus.setAttribute("id", "hidden_status");
+    hiddenStatus.setAttribute("name", "status");
+
+    tableBody.appendChild(hiddenTenantID);
+    tableBody.appendChild(hiddenStatus);
     dataList.forEach((element) => {
         createRecord(element);
     });
