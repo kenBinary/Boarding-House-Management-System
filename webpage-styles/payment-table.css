@@ -92,3 +92,10 @@ tbody input{
 tbody input[value="Electricity"],input[value="Water"]{
     height: auto !important;
 }
+.unpaid{
+    background-color: rgb(255, 0, 0,0.45);
+
+}
+.paid{
+    background-color: rgb(0, 128, 0,0.45);
+}
