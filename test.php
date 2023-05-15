@@ -1,21 +1,26 @@
+<!DOCTYPE html>
 <html>
-<title>
-</title>
-
+<head>
+  <title>Command Execution</title>
+</head>
 <body>
-    <form action="" method="get">
-        <input type="hidden" name="test" value="bruh">
-        <div>
-            blaksjdflfj
-        </div>
-        <input type="submit" value="submit" name="submit">
-    </form>
+  <form method="POST" action="test.php">
+    <label for="command">Select a command:</label>
+    <select name="command" id="command">
+      <option value="command1">Command 1</option>
+      <option value="command2">Command 2</option>
+      <option value="command3">Command 3</option>
+    </select>
+    <br>
+    <input type="submit" value="Execute Command" name="bruh">
+  </form>
 </body>
-
 </html>
-<?php
-if (isset($_GET['submit'])) {
-    echo $_GET['test'];
-}
 
-?>
+<?php
+if (isset($_POST['command'])) {
+    echo "aslkdjflkasjdfk";
+}
+if (isset($_POST['bruh'])) {
+    echo "laf";
+}

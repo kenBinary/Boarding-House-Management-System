@@ -51,3 +51,11 @@
 .remove-tenant:hover{
     transform: scale(1.03);
 }
+.image-holder{
+    width: 100%;
+    /* background-image: url("../icons/avatar-placeholder.svg"); */
+    background-image: url("../icons/avatar-placeholder.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}   

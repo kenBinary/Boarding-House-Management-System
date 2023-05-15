@@ -159,3 +159,26 @@ function createRecords(dataList) {
         createRecord(element);
     });
 }
+function paymentDetails() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "payment-details.php", true);
+    xhr.onload = function () {
+      if (this.status == 200) {
+        let data = JSON.parse(this.responseText);
+        updateDetails(data);
+        console.log("laskdfj")
+      } else {
+        console.log("Error");
+      }
+    };
+    xhr.send();
+  }
+  paymentDetails();
+  
+  function updateDetails(data) {
+    const detailNodes = document.querySelectorAll(".detail");
+    const detailArray = Array.from(detailNodes);
+    detailArray.forEach((element, index, array) => {
+      element.textContent = element.textContent + data[index];
+    });
+  }

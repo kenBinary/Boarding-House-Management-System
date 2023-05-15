@@ -302,3 +302,26 @@ const assignPopUp = (callback, targetElement) => {
 
   return { sectionDiv, dataList };
 }
+
+function roomDetails() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "room-details.php", true);
+  xhr.onload = function () {
+    if (this.status == 200) {
+      let data = JSON.parse(this.responseText);
+      updateDetails(data);
+    } else {
+      console.log("Erro");
+    }
+  };
+  xhr.send();
+}
+roomDetails();
+
+function updateDetails(data) {
+  const detailNodes = document.querySelectorAll(".detail");
+  const detailArray = Array.from(detailNodes);
+  detailArray.forEach((element, index, array) => {
+    element.textContent = element.textContent + data[index];
+  });
+}
