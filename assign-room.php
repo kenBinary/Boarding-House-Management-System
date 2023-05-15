@@ -4,6 +4,23 @@ if (isset($_POST['assign-tenant'])) {
     $tenant_ID = $_POST['tenant-list'];
     $amenity;
     $room_number = $_POST['room_number'];
+    $double_rooms = array("3", "15", "16", "17");
+
+    if (in_array($room_number, $double_rooms)) {
+        $occupants = "Select * from tenant where room_number = '{$room_number}'";
+        $numberOfOccupants = mysqli_query($conn, $occupants)->num_rows;
+        if ($numberOfOccupants == 0) {
+            echo "no rows";
+        } else {
+            $room_status_double = "UPDATE room SET roomStatus = TRUE WHERE roomNumber = '{$room_number}'";
+            mysqli_query($conn, $room_status_double);
+            echo "some rows";
+        }
+    } else {
+        $room_status = "UPDATE room SET roomStatus = TRUE WHERE roomNumber = '{$room_number}'";
+        mysqli_query($conn, $room_status);
+        echo "not double";
+    }
 
     if (isset($_POST['amenity'])) {
         $last_id = mysqli_query($conn, "SELECT amenityID FROM amenity ORDER BY amenityID DESC LIMIT 1");
@@ -25,8 +42,6 @@ if (isset($_POST['assign-tenant'])) {
     mysqli_query($conn, $tenant_utility);
     $room_utility = "INSERT INTO `roomutility`(`room_number`, `utility_id`) VALUES ('{$room_number}','1'),('{$room_number}','2')";
     mysqli_query($conn, $room_utility);
-    $room_status = "UPDATE room SET roomStatus = TRUE WHERE roomNumber = '{$room_number}'";
-    mysqli_query($conn, $room_status);
 }
 header("Location: room-management-webpage.php");
 exit();

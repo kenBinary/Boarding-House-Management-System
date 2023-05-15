@@ -122,7 +122,7 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
       previewDetails.addEventListener("click", (e) => {
         let roomNumber = e.target.parentElement.firstElementChild.textContent;
         removeTenant(roomNumber);
-        location.reload();
+        // location.reload();
       });
     }
     parentElement.appendChild(previewDetails);
@@ -148,6 +148,8 @@ function removeTenant(roomNumber) {
   xhr.open("GET", "remove-room.php" + "?roomNumber=" + encodeURIComponent(roomNumber), true);
   xhr.onload = function () {
     if (this.status == 200) {
+      // let data = JSON.parse(this.responseText);
+      // console.log(data);
       console.log("remove Success");
     } else {
       console.log("error retrieving data");
