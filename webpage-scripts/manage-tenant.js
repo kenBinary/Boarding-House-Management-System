@@ -190,6 +190,9 @@ function removeTenant(tenantId) {
       if (data) {
         alert("Remove Tenant From Room First");
       }
+      else{
+        alert("Removed Tenant From Database");
+      }
     } else {
       console.log("error");
     }

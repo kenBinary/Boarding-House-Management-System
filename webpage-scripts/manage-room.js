@@ -122,7 +122,7 @@ function createPreviewDetails(parentElement, imageSource, textContent) {
       previewDetails.addEventListener("click", (e) => {
         let roomNumber = e.target.parentElement.firstElementChild.textContent;
         removeTenant(roomNumber);
-        // location.reload();
+        location.reload();
       });
     }
     parentElement.appendChild(previewDetails);
