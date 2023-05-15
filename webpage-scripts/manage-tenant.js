@@ -105,6 +105,7 @@ const addTenantPopUp = ((popUp) => {
     input.setAttribute("type", inputTypes[index]);
     input.setAttribute("name", inputNames[index]);
     input.setAttribute("id", inputID[index]);
+    input.setAttribute("required","");
     popUpElements.push(label);
     popUpElements.push(input);
   });
@@ -148,10 +149,15 @@ function removeTenant(tenantId) {
   );
   xhr.onload = function () {
     if (this.status == 200) {
-      console.log("success");
+      let data = JSON.parse(this.responseText);
+      if (data) {
+        alert("Remove Tenant From Room First");
+      }
     } else {
-      console.log("xx");
+      console.log("error");
     }
   };
   xhr.send();
 }
+
+
