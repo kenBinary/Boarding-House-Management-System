@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@font-face {
+    font-family: Inter;
+    src: url("../resources/Inter/Inter-VariableFont_slnt\,wght.ttf");
+}
 
 :root {
     box-sizing: border-box;

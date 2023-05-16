@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@font-face {
+    font-family: Inter;
+    src: url("../resources/Inter/Inter-VariableFont_slnt\,wght.ttf");
+}
 :root{
     --dominant-layout: #f8fafc;
     --complementary-layout: #1e293b;
