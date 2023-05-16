@@ -2,28 +2,32 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    row-gap:1rem;
+    row-gap: 1rem;
 }
-.tenant-details-section{
+
+.tenant-details-section {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     row-gap: 0.4rem;
 }
-.tenant-details-section > * {
+
+.tenant-details-section>* {
     border: 1px solid rgb(126, 139, 158);
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
 
 }
-.tenant-details-section > .image-holder{
+
+.tenant-details-section>.image-holder {
     height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.tenant-details-section > .details {
+
+.tenant-details-section>.details {
     height: 7%;
     padding: 2px;
     display: flex;
@@ -34,7 +38,16 @@
     overflow-y: hidden;
 }
 
-.remove-tenant{
+
+.image-holder {
+    width: 100%;
+    background-image: url("../icons/avatar-placeholder.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .remove-tenant {
     box-sizing: border-box;
     padding: .5rem;
     font-size: 1rem;
@@ -47,14 +60,29 @@
     align-items: center;
     font-weight: bold;
     transition: 0.3s ease-out;
+} */
+
+.modify-tenant {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 5.5%;
+    font-weight: bold;
 }
-.remove-tenant:hover{
+
+.edit-tenant, .remove-tenant {
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid rgb(126, 139, 158);
+    transition: 0.3s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.remove-tenant:hover,
+.edit-tenant:hover {
     transform: scale(1.03);
 }
-.image-holder{
-    width: 100%;
-    background-image: url("../icons/avatar-placeholder.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}   
