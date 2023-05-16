@@ -175,7 +175,9 @@ removeTenantButton.addEventListener("click", () => {
   let tenantText = tenant_id.textContent;
   var tenantId = tenantText.replace(/\D/g, "");
   removeTenant(tenantId);
-  location.reload();
+  setTimeout(() => {
+    location.reload();
+  }, 1000);
 });
 function removeTenant(tenantId) {
   var xhr = new XMLHttpRequest();
@@ -190,7 +192,7 @@ function removeTenant(tenantId) {
       if (data) {
         alert("Remove Tenant From Room First");
       }
-      else{
+      else {
         alert("Removed Tenant From Database");
       }
     } else {
