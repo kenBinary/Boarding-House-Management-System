@@ -65,17 +65,35 @@ function retrieveRowData(tenantId, callback) {
 }
 
 function updateDetails(detailData) {
-  let details = Array.from(document.querySelectorAll(".details"));
+  // let details = Array.from(document.querySelectorAll(".details"));
+  // let detailText = [
+  //   "Tenant ID: ",
+  //   "Room Number: ",
+  //   "First Name: ",
+  //   "Last Name: ",
+  //   " Contact Number: ",
+  // ];
+  // detailData.forEach((element, index) => {
+  //   details[index].textContent = detailText[index] + element;
+  // });
+  let details = Array.from(document.querySelectorAll(".unchanged"));
   let detailText = [
     "Tenant ID: ",
     "Room Number: ",
-    "First Name: ",
-    "Last Name: ",
-    " Contact Number: ",
   ];
   detailData.forEach((element, index) => {
-    details[index].textContent = detailText[index] + element;
+    if (index >= 2) {
+      let x = index - 2;
+      let detailInputs = Array.from(document.querySelectorAll(".detail-input"));
+      detailInputs[x].setAttribute("value", element);
+      detailInputs[x].removeAttribute("readonly");
+    }
+    else {
+      details[index].textContent = detailText[index] + element;
+    }
   });
+
+
 }
 
 
@@ -203,3 +221,51 @@ function removeTenant(tenantId) {
 }
 
 
+
+//EDIT TENANT
+const editTenantButton = document.querySelector(".edit-tenant");
+editTenantButton.addEventListener('click', () => {
+  let tenant_id = document.querySelector("#tenant-id");
+  let tenantText = tenant_id.textContent;
+
+
+  let tenantId = tenantText.replace(/\D/g, "");
+  let firstName = document.querySelector("#edit-first").value;
+  let lastName = document.querySelector("#edit-last").value;
+  let contactNumber = document.querySelector("#edit-contact").value;
+  editTenant(tenantId, firstName, lastName, contactNumber);
+
+});
+function editTenant(tenantId, firstName, lastName, contactNumber) {
+
+
+  var url = 'edit-tenant.php' +
+    '?tenantId=' + encodeURIComponent(tenantId) +
+    '&firstName=' + encodeURIComponent(firstName) +
+    '&lastName=' + encodeURIComponent(lastName) +
+    '&contactNumber=' + encodeURIComponent(contactNumber);
+  var xhr = new XMLHttpRequest();
+  xhr.open(
+    "GET",
+    url,
+    true
+  );
+  xhr.onload = function () {
+    if (this.status == 200) {
+      let data = JSON.parse(this.responseText);
+      console.log(data);
+      if (data) {
+        setTimeout(() => {
+          location.reload();
+        }, 100);
+        alert("Update Successful");
+      }
+      else {
+        alert("Select a tenant to Update!");
+      }
+    } else {
+      console.log("error");
+    }
+  };
+  xhr.send();
+}

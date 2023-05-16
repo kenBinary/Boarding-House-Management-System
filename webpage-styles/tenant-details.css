@@ -47,21 +47,6 @@
     background-size: cover;
 }
 
-/* .remove-tenant {
-    box-sizing: border-box;
-    padding: .5rem;
-    font-size: 1rem;
-    border: 1px solid rgb(126, 139, 158);
-    border-radius: 5px;
-    cursor: pointer;
-    flex-basis: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    transition: 0.3s ease-out;
-} */
-
 .modify-tenant {
     display: flex;
     justify-content: space-between;
@@ -70,7 +55,8 @@
     font-weight: bold;
 }
 
-.edit-tenant, .remove-tenant {
+.edit-tenant,
+.remove-tenant {
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
@@ -85,4 +71,27 @@
 .remove-tenant:hover,
 .edit-tenant:hover {
     transform: scale(1.03);
+}
+
+.details>input {
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+
+}
+
+#e-first-name>input,
+#e-last-name>input {
+    width: 60%;
+}
+
+#e-contact-num>input {
+    width: 45%;
+}
+
+
+.details>input:focus {
+    outline: none;
 }
